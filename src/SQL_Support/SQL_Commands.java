@@ -1,23 +1,155 @@
 package SQL_Support;
 
+import java.util.*;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import Tables.Person;
 
 public class SQL_Commands {
-	Connection connection ;
-	public SQL_Commands(String Username , String Password ,String Database_Name  ) {
+	Connection connection;
+
+	public SQL_Commands(String Username, String Password, String Database_Name) {
 		DB_Connect Database_Connector = new DB_Connect();
 		connection = Database_Connector.get_Connection(Username, Password, Database_Name);
+
+		table_features = new Table_Features();
 	}
-	public  void Insert(JSONObject obj) {
-		String Table_name = obj.getString("Table_name");
-		if(Table_name.equals("Person")) {
-			Person person = new Person();
-			person.Insert(obj, connection);
+
+	public Table_Features table_features = null;
+
+	public void Insert(JSONObject obj) {
+		PreparedStatement ps = null;
+		try {
+
+			String Table_name = obj.getString("Table_name");
+			String[] features = table_features.Features(Table_name);
+			HashSet<String> Primary_Key = table_features.Primary_Key(Table_name);
+
+			String query = "INSERT INTO ";
+			query = query + Table_name;
+			String columns = " ( ";
+			String values = "VALUES ( ";
+
+			for (int i = 0; i < features.length; i++) {
+				if (i > 0) {
+					columns += " , ";
+					values += " , ";
+				}
+				columns += features[i];
+				values += "?";
+			}
+
+			columns += " ) ";
+			values += " ) ;";
+			query = query + columns + values;
+
+			ps = connection.prepareStatement(query);
+			for (int i = 1; i <= features.length; i++) {
+				if (!obj.has(features[i - 1])) {
+					if (Primary_Key.contains(features[i - 1]))
+						throw new Exception("Primary Key can't be null");
+					else {
+						ps.setString(i, null);
+						continue;
+					}
+				}
+				ps.setString(i, obj.getString(features[i - 1]));
+			}
+			int status = ps.executeUpdate();
+			System.out.println("Data Inserted !");
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error in SQL_Commands Insert operation");
+
 		}
 	}
-	
+
+	public void Delete(JSONObject obj) {
+		PreparedStatement ps = null;
+		try {
+
+			String Table_name = obj.getString("Table_name");
+			HashSet<String> Primary_Key = table_features.Primary_Key(Table_name);
+
+			String query = "DELETE FROM  ";
+			query = query + Table_name;
+			query = query + " where ";
+
+			obj.remove("Table_name");
+			JSONArray keys = obj.names();
+			List<String> Values_to_prepare_statement = new ArrayList<String>();
+			for (int i = 0; i < keys.length(); ++i) {
+				String key = keys.getString(i);
+				String value = obj.getString(key);
+				if (Primary_Key.contains(key)) {
+					Primary_Key.remove(key);
+				}
+				if (i > 0) {
+					query += " and ";
+				}
+				query += key + " = ? ";
+
+				Values_to_prepare_statement.add(value);
+			}
+			if (Primary_Key.size() != 0) {
+				System.out.println("Delele Not Possible !");
+			}
+
+			ps = connection.prepareStatement(query);
+			for (int i = 0; i < Values_to_prepare_statement.size(); i++)
+				ps.setString(i + 1, Values_to_prepare_statement.get(i));
+
+			ps.executeUpdate();
+			System.out.println("Data Deleted !");
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error in SQL_Commands Delete operation");
+		}
+	}
+
+	public List<JSONObject> Read(String[] features, String Table_name) {
+		PreparedStatement ps = null;
+		List<JSONObject> list = null;
+		ResultSet rs = null;
+		try {
+			String querry = "select ";
+
+			for (int i = 0; i < features.length; i++) {
+				if (i >= 1 && i <= features.length - 1) {
+					querry = querry + " , ";
+				}
+				querry = querry + features[i];
+
+			}
+			querry = querry + " from Person";
+
+			ps = connection.prepareStatement(querry);
+			rs = ps.executeQuery();
+			list = new ArrayList<JSONObject>();
+			while (rs.next()) {
+				JSONObject new_json_obj = new JSONObject();
+				for (String f : features) {
+					new_json_obj.put(f, rs.getString(f));
+				}
+				list.add(new_json_obj);
+			}
+
+		} catch (Exception e) {
+			System.out.println("Error in SQL_Commands Delete operation");
+		}
+		return list;
+	}
+
+	public void Update(JSONObject obj) {
+		try {
+
+		} catch (Exception e) {
+			System.out.println("Error in SQL_Commands Update operation");
+		}
+	}
 }
