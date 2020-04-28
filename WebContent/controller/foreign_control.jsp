@@ -1,4 +1,5 @@
 <%@page import="org.json.JSONObject"%>
+<%@page import="SQL_Support.SQL_Commands" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
 </head>
 <body>
 <%
+	//Pick all from the html form
 	String fname = request.getParameter("fname");
 	String lname = request.getParameter("lname");
 	String age = request.getParameter("age");
@@ -21,7 +23,9 @@
 	String country = request.getParameter("country_visit");
 	String date = request.getParameter("datevisit");
 	
+	//Make a JSON Object
 	JSONObject obj = new JSONObject();
+	obj.put("Table_name","Foreign");
 	obj.put("Aadhar_Number",aadhar);
 	obj.put("First_Name" , fname);
 	obj.put("Last_Name" , lname);
@@ -33,6 +37,11 @@
 	obj.put("Country_Visit", country);
 	obj.put("Date_Visit", date);
 	obj.put("Mobile" , mobile);
+	
+	//Send it
+	SQL_Commands cmd = new SQL_Commands("root","Dawra@740","cms");
+	cmd.Insert(obj);
+	
 %>
 
 <h2>Kaam ho gya !! Jankaari dene ke liye dhanyawaad</h2>

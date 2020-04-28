@@ -8,6 +8,10 @@
 </head>
 <body>
 	<h1>Foreign Visitors</h1>
+	<%
+		
+	
+	%>
 </body>
 </html>
 
