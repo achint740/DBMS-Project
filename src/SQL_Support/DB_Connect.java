@@ -6,25 +6,28 @@ import java.sql.DriverManager;
 
 import org.json.JSONObject;
 
+import DataBase_Interface.Execute_Statement;
+
 public class DB_Connect {
 
 // testing purpose
 	public static void main(String[] args) {
 
-	   SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
-	   JSONObject obj = new JSONObject();
+	 //  SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
+	   Execute_Statement e = new Execute_Statement();
+		JSONObject obj = new JSONObject();
 
-		obj.put("Table_name","Person" );
-		obj.put("Aadhar_Number","929956789579" );
-//		obj.put("First_Name" , "vimal");
-//		obj.put("Last_Name" , "singh");
-//		obj.put("Age" , "20");
-//		obj.put("Gender" , "Male");
-//		obj.put("Address_Line_1" , "sector -3 ");
-//		obj.put("City" , "rohini");
-//		obj.put("State" , "delhi");
-//		obj.put("PinCode" , "110085");
-//	    s.Insert(obj);
+		//obj.put("Table_name","Foreign_Visit" );
+		obj.put("Aadhar_Number","143456789995" );
+		obj.put("Phone_Number", "1111111122");
+		obj.put("First_Name" , "nancy");
+		obj.put("Gender" , "Male");
+		obj.put("Address_Line_1" , "sonepat");
+		obj.put("City" , "rohtak");
+		obj.put("State" , "haryana");
+		obj.put("PinCode" , "110095");
+		obj.put("Country", "Japan");
+		obj.put("Current_Status", "neg");
 
 //		s.Delete(obj);
 
@@ -39,6 +42,8 @@ public class DB_Connect {
 //		System.out.println();
 //		i++;
 //	   }
+		
+		e.Insert(obj , "Foreign_Visit");
 	}
 
 

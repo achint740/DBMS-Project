@@ -26,7 +26,7 @@ public class SQL_Commands {
 		PreparedStatement ps = null;
 		try {
 
-			String Table_name = obj.getString("Table_name");
+			String Table_name = obj.getString("Table_Name");
 			String[] features = table_features.Features(Table_name);
 			HashSet<String> Primary_Key = table_features.Primary_Key(Table_name);
 
@@ -36,6 +36,7 @@ public class SQL_Commands {
 			String values = "VALUES ( ";
 
 			for (int i = 0; i < features.length; i++) {
+				
 				if (i > 0) {
 					columns += " , ";
 					values += " , ";
@@ -60,8 +61,7 @@ public class SQL_Commands {
 				}
 				ps.setString(i, obj.getString(features[i - 1]));
 			}
-			int status = ps.executeUpdate();
-			System.out.println("Data Inserted !");
+			ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error in SQL_Commands Insert operation");
@@ -105,7 +105,6 @@ public class SQL_Commands {
 				ps.setString(i + 1, Values_to_prepare_statement.get(i));
 
 			ps.executeUpdate();
-			System.out.println("Data Deleted !");
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error in SQL_Commands Delete operation");
@@ -145,10 +144,63 @@ public class SQL_Commands {
 		return list;
 	}
 
-	public void Update(JSONObject obj) {
+	public void Update(JSONObject obj_what, JSONObject obj_where) {
+		PreparedStatement ps = null;
 		try {
 
+			String Table_name = obj_where.getString("Table_name");
+			HashSet<String> Primary_Key = table_features.Primary_Key(Table_name);
+
+			String query = "UPDATE ";
+			query = query + Table_name;
+			query = query + " SET ";
+
+			obj_where.remove("Table_name");
+
+			JSONArray keys = obj_what.names();
+			List<String> Values_to_prepare_statement = new ArrayList<String>();
+			for (int i = 0; i < keys.length(); ++i) {
+				String key = keys.getString(i);
+				String value = obj_what.getString(key);
+
+				if (i > 0) {
+					query += " , ";
+				}
+				query += key + " = ? ";
+
+				Values_to_prepare_statement.add(value);
+			}
+
+			query = query + " WHERE ";
+
+			keys = obj_where.names();
+
+			for (int i = 0; i < keys.length(); ++i) {
+				String key = keys.getString(i);
+				String value = obj_where.getString(key);
+				if (Primary_Key.contains(key)) {
+					Primary_Key.remove(key);
+				}
+				if (i > 0) {
+					query += " and ";
+				}
+				query += key + " = ? ";
+
+				Values_to_prepare_statement.add(value);
+			}
+
+			if (Primary_Key.size() != 0) {
+				System.out.println("Update Not Possible !");
+				throw new Exception("Whole Data could be Updated");
+			}
+
+			ps = connection.prepareStatement(query);
+			for (int i = 0; i < Values_to_prepare_statement.size(); i++)
+				ps.setString(i + 1, Values_to_prepare_statement.get(i));
+
+			ps.executeUpdate();
 		} catch (Exception e) {
+			System.out.println(e);
 			System.out.println("Error in SQL_Commands Update operation");
 		}
 	}
