@@ -1,21 +1,14 @@
 package Tables;
 
-import java.util.*;
+import java.util.HashSet;
 
-public class Person {
+public class Contact_Details {
 	final public String [] Features = {
 			"Aadhar_Number",
-			"First_Name",
-			"Last_Name",
-			"Age",
-			"Gender",
-			"Address_Line_1",
-			"City",
-			"State",
-			"PinCode"
+			"Phone_Number"
 	};
     final public HashSet<String> Primary_Key ;
-	public Person() {
+	public Contact_Details() {
 		Primary_Key = new HashSet<String>();
 		Primary_Key.add("Aadhar_Number");
 	}
