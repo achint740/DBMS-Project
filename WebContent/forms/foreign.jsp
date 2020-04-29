@@ -7,7 +7,7 @@
 <title>Foreign Visits</title>
 </head>
 <body>
-	<form method="POST" action="controller/foreign_control.jsp">
+	<form method="POST" action="controller/foreign_c.jsp">
 	
 		<input name="fname" type="text" placeholder="First Name" maxlength="20"><br><br>
 		<input name="lname" type="text" placeholder="Last Name" maxlength="20"><br><br>
@@ -24,7 +24,7 @@
 		<input name="mobile" type="text" placeholder="Mobile" minlength="10" maxlength="10"><br><br>
 		<input name="aadhar" type="text" placeholder="Aadhar Number" minlength="12" maxlength="12"><br><br>
 		<input name="country_visit" type="text" placeholder="Country Visted" maxlength="25"><br><br>
-		<input name="datevisit" type="date"><br><br>
+		<input name="datevisit" type="date" placeholder="Date Of Visit"><br><br>
 		<input type="submit" value="Submit">
 	</form>
 </body>
