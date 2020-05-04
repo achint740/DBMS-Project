@@ -4,8 +4,8 @@ import java.util.HashSet;
 
 import org.json.JSONObject;
 
-import Foreign_Visit.Foreign_Visit;
 import SQL_Support.Table_Features;
+import Views.Entity_Foreign_Visit;
 
 public class Entity {
 
@@ -17,8 +17,8 @@ public class Entity {
 	}
 
 	public JSONObject[] Split_Json_Objects(JSONObject obj, String View) {
-		if (View.equals("Foreign_Visit")) {
-			Foreign_Visit foreign_visit = new Foreign_Visit();
+		if (View.equals("Entity_Foreign_Visit")) {
+			Entity_Foreign_Visit foreign_visit = new Entity_Foreign_Visit();
 			Derieved_Tables = foreign_visit.get_Tables();
 		}
 		return get_JSON(obj);

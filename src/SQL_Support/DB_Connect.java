@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import org.json.JSONObject;
 
 import DataBase_Interface.Execute_Statement;
+import Tables.Contact_Details;
+import Tables.Parent_Table;
 
 public class DB_Connect {
 
@@ -16,21 +18,23 @@ public class DB_Connect {
 	 //  SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
 	   Execute_Statement e = new Execute_Statement();
 		JSONObject obj = new JSONObject();
-
-		//obj.put("Table_name","Foreign_Visit" );
-		obj.put("Aadhar_Number","143456789995" );
-		obj.put("Phone_Number", "1111111122");
-		obj.put("First_Name" , "nancy");
-		obj.put("Gender" , "Male");
-		obj.put("Address_Line_1" , "sonepat");
-		obj.put("City" , "rohtak");
-		obj.put("State" , "haryana");
-		obj.put("PinCode" , "110095");
-		obj.put("Country", "Japan");
-		obj.put("Current_Status", "neg");
+      Parent_Table t = new Contact_Details();
+     
+      for(String as : t.get_features())
+    	  System.out.println(as);
+	//	obj.put("Table_Name","Person" );
+		obj.put("Aadhar_Number","111111111111" );
+//		obj.put("Phone_Number", "1111111122");
+//		obj.put("First_Name" , "dlet");
+//		obj.put("Gender" , "Male");
+//		obj.put("Address_Line_1" , "adders");
+//		obj.put("City" , "rsonn");
+//		obj.put("State" , "harysadna");
+//		obj.put("PinCode" , "110095");
+//		obj.put("Country", "Japan");
+//		obj.put("Current_Status", "neg");
 
 //		s.Delete(obj);
-
 //	   String[] features = {"Aadhar_Number" ,"Age" ,"PinCode"};
 //	   List<JSONObject> list = s.Read(features, "Person");
 //	   int i = 0;
@@ -43,7 +47,8 @@ public class DB_Connect {
 //		i++;
 //	   }
 		
-		e.Insert(obj , "Foreign_Visit");
+		//e.Delete(obj , "Foreign_Visit");
+	// s.Delete(obj);
 	}
 
 

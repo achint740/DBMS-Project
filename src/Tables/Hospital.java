@@ -3,7 +3,7 @@ package Tables;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Hospital {
+public class Hospital extends Parent_Table {
 	final public String [] Features = {
 			"Hospital_ID",
 			"Name",
@@ -18,5 +18,14 @@ public class Hospital {
 		Primary_Key = new HashSet<String>();
 		Primary_Key.add("Hospital_ID");
 		
+	}
+	
+	@Override
+	public String[] get_features() {
+		return Features.clone();
+	}
+	@Override
+	public HashSet<String> get_primary_key() {
+		return Primary_Key;
 	}
 }
