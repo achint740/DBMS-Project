@@ -4,8 +4,8 @@ import java.util.HashSet;
 
 import org.json.JSONObject;
 
-import Foreign_Visit.Foreign_Visit;
 import SQL_Support.Table_Features;
+import distributor.Foreign_Visit;
 
 public class Entity {
 

@@ -34,6 +34,6 @@
 	cmd.Insert(obj);
 %>
 <h2>Hospital Details Entered Successfully</h2>
-<a href="../index.jsp"><h3>Click Here To Go Back</h3></a>
+<a href="../../index.jsp"><h3>Click Here To Go Back</h3></a>
 </body>
 </html>

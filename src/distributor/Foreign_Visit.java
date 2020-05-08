@@ -1,4 +1,4 @@
-package Foreign_Visit;
+package distributor;
 
 public class Foreign_Visit {
 	private String[] Derieved_Tables = { 
