@@ -1,8 +1,8 @@
-package Views;
+package Entities;
 
-public class Entity_Users {
+public class Entity_Doctor {
 	private String[] Derieved_Tables = { 
-			"Users", 
+			"Doctor", 
 			 };
 
 	public String[] get_Tables() {

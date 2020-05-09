@@ -1,8 +1,8 @@
-package Views;
+package Entities;
 
-public class Entity_Home_Quarantine {
+public class Entity_Patient {
 	private String[] Derieved_Tables = { 
-			"Home_Quarantined", 
+			"Patient", 
 			"Person", 
 		    "Contact_Details" };
 

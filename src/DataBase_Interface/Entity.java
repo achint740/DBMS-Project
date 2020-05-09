@@ -6,7 +6,6 @@ import org.json.JSONObject;
 
 import SQL_Support.Table_Features;
 
-import distributor.Foreign_Visit;
 
 public class Entity {
 

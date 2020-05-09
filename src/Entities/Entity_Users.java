@@ -1,9 +1,9 @@
-package Views;
+package Entities;
 
-public class Entity_Hospital {
+public class Entity_Users {
 	private String[] Derieved_Tables = { 
-			"Hospital", 
-			};
+			"Users", 
+			 };
 
 	public String[] get_Tables() {
 		return Derieved_Tables.clone();

@@ -1,4 +1,4 @@
-package Views;
+package Entities;
 
 public class Entity_Teams {
 	private String[] Derieved_Tables = { 
