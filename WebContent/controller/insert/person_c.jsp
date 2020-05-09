@@ -40,7 +40,7 @@
 	cmd.Insert(obj);
 %>
 <h2>Your Deatils have been added.</h2>
-<a href="../index.jsp"><h3>Click here to Go Back</h3></a>
+<a href="../../index.jsp"><h3>Click here to Go Back</h3></a>
 
 </body>
 </html>

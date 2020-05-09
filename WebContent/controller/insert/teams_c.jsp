@@ -29,7 +29,7 @@
 %>
 
 <h2>Team Data Entered Successfully</h2>
-<a><h3>Go Back</h3></a>
+<a href="../../index.jsp"><h3>Go Back</h3></a>
 
 </body>
 </html>

@@ -30,7 +30,7 @@
 %>
 
 <h2>Details Entered Successfully</h2>
-<a href="../index.jsp"><h3>Go Back to Home Page</h3></a>
+<a href="../../index.jsp"><h3>Go Back to Home Page</h3></a>
 
 </body>
 </html>
