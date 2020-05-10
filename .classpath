@@ -9,8 +9,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/sargam/Desktop/mysql-jar/mysql-connector-java-8.0.19/mysql-connector-java-8.0.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sargam/Downloads/srvlet.jar/servlet.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sargam/Downloads/json_rpc-1.0.jar/json-rpc-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VISHESH JAIN/Downloads/dbms/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VISHESH JAIN/Downloads/dbms/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bin.jar"/>
+	<classpathentry kind="lib" path="D:/sbms/json-rpc-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/sbms/javax.servlet-3.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

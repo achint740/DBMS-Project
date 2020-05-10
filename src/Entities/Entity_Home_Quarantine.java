@@ -1,10 +1,10 @@
-package distributor;
+package Entities;
 
-public class Foreign_Visit {
+public class Entity_Home_Quarantine {
 	private String[] Derieved_Tables = { 
-			"Foreign_Visit_Info", 
+			"Home_Quarantined", 
 			"Person", 
-			"Contact_Details" };
+		    "Contact_Details" };
 
 	public String[] get_Tables() {
 		return Derieved_Tables.clone();

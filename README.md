@@ -22,6 +22,10 @@ MYSQL commands :
     PinCode INT CONSTRAINT SIX_DIGITS  CHECK (PinCode >=100000 and PinCode <=999999  )  ,
     CONSTRAINT PERSON_PK PRIMARY KEY (Aadhar_Number)
     ) ;
+    
+     ALTER TABLE PERSON
+     ADD COLUMN
+     PASSWORD VARCHAR(50) NOT NULL;
 
 
 

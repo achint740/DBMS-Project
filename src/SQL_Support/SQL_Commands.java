@@ -73,14 +73,14 @@ public class SQL_Commands {
 		PreparedStatement ps = null;
 		try {
 
-			String Table_name = obj.getString("Table_name");
+			String Table_name = obj.getString("Table_Name");
 			HashSet<String> Primary_Key = table_features.Primary_Key(Table_name);
 
 			String query = "DELETE FROM  ";
 			query = query + Table_name;
 			query = query + " where ";
 
-			obj.remove("Table_name");
+			obj.remove("Table_Name");
 			JSONArray keys = obj.names();
 			List<String> Values_to_prepare_statement = new ArrayList<String>();
 			for (int i = 0; i < keys.length(); ++i) {
@@ -96,38 +96,32 @@ public class SQL_Commands {
 
 				Values_to_prepare_statement.add(value);
 			}
+			
+			query +=  " ; ";
+
 			if (Primary_Key.size() != 0) {
 				System.out.println("Delele Not Possible !");
+				throw new Exception("not having primary key ");
 			}
 
 			ps = connection.prepareStatement(query);
-			for (int i = 0; i < Values_to_prepare_statement.size(); i++)
+			for (int i = 0; i < Values_to_prepare_statement.size(); i++) {
 				ps.setString(i + 1, Values_to_prepare_statement.get(i));
-
-			ps.executeUpdate();
+			}
+			int rs = ps.executeUpdate();
+			
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error in SQL_Commands Delete operation");
 		}
 	}
 
-	public List<JSONObject> Read(String[] features, String Table_name) {
+	public List<JSONObject> Read(String querry , String[] features) {
 		PreparedStatement ps = null;
 		List<JSONObject> list = null;
 		ResultSet rs = null;
 		try {
-			String querry = "select ";
-
-			for (int i = 0; i < features.length; i++) {
-				if (i >= 1 && i <= features.length - 1) {
-					querry = querry + " , ";
-				}
-				querry = querry + features[i];
-
-			}
-			querry = querry + " from Person";
-
-			ps = connection.prepareStatement(querry);
+			ps = connection.prepareStatement(querry );
 			rs = ps.executeQuery();
 			list = new ArrayList<JSONObject>();
 			while (rs.next()) {
@@ -148,14 +142,14 @@ public class SQL_Commands {
 		PreparedStatement ps = null;
 		try {
 
-			String Table_name = obj_where.getString("Table_name");
+			String Table_name = obj_where.getString("Table_Name");
 			HashSet<String> Primary_Key = table_features.Primary_Key(Table_name);
 
 			String query = "UPDATE ";
 			query = query + Table_name;
 			query = query + " SET ";
 
-			obj_where.remove("Table_name");
+			obj_where.remove("Table_Name");
 
 			JSONArray keys = obj_what.names();
 			List<String> Values_to_prepare_statement = new ArrayList<String>();
@@ -204,4 +198,6 @@ public class SQL_Commands {
 			System.out.println("Error in SQL_Commands Update operation");
 		}
 	}
+	
+	
 }
