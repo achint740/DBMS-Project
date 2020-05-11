@@ -116,12 +116,16 @@ public class SQL_Commands {
 		}
 	}
 
-	public List<JSONObject> Read(String querry , String[] features) {
+	public List<JSONObject> Read(String querry , String[] values ,String[] features) {
 		PreparedStatement ps = null;
 		List<JSONObject> list = null;
 		ResultSet rs = null;
 		try {
 			ps = connection.prepareStatement(querry );
+			if(values!=null)
+			for(int i = 1  ; i <= values.length ;i++ ) {
+				ps.setString(i , values[i-1]);
+			}
 			rs = ps.executeQuery();
 			list = new ArrayList<JSONObject>();
 			while (rs.next()) {
@@ -133,7 +137,7 @@ public class SQL_Commands {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Error in SQL_Commands Delete operation");
+			System.out.println("Error in SQL_Commands Read operation");
 		}
 		return list;
 	}
@@ -150,6 +154,7 @@ public class SQL_Commands {
 			query = query + " SET ";
 
 			obj_where.remove("Table_Name");
+			obj_what.remove("Table_Name");
 
 			JSONArray keys = obj_what.names();
 			List<String> Values_to_prepare_statement = new ArrayList<String>();
@@ -182,7 +187,6 @@ public class SQL_Commands {
 
 				Values_to_prepare_statement.add(value);
 			}
-
 			if (Primary_Key.size() != 0) {
 				System.out.println("Update Not Possible !");
 				throw new Exception("Whole Data could be Updated");
@@ -191,7 +195,6 @@ public class SQL_Commands {
 			ps = connection.prepareStatement(query);
 			for (int i = 0; i < Values_to_prepare_statement.size(); i++)
 				ps.setString(i + 1, Values_to_prepare_statement.get(i));
-
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);

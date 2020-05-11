@@ -3,22 +3,20 @@ package Tables;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Hospital extends Parent_Table {
+public class Doctor extends Parent_Table{
 	final public String [] Features = {
-			"Hospital_ID",
+			"Doctor_ID",
 			"Name",
-			"City" ,
-			"State",
-			"PinCode"
-			
+		"Hospital_ID"
 	};
     final public HashSet<String> Primary_Key ;
-	public Hospital() {
+    final public HashMap<String  , String > Foreign_Keys ;
+	public Doctor() {
 		Primary_Key = new HashSet<String>();
-		Primary_Key.add("Hospital_ID");
+		Primary_Key.add("Doctor_ID");
 		
-	}
-	
+		Foreign_Keys = new HashMap<String, String>();
+			}
 	@Override
 	public String[] get_features() {
 		return Features.clone();

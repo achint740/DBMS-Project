@@ -16,39 +16,20 @@ public class DB_Connect {
 	public static void main(String[] args) {
 
 	 //  SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
-	   Execute_Statement e = new Execute_Statement();
+		Execute_Statement e  = new Execute_Statement();
 		JSONObject obj = new JSONObject();
-      Parent_Table t = new Contact_Details();
-     
-      for(String as : t.get_features())
-    	  System.out.println(as);
-	//	obj.put("Table_Name","Person" );
-		obj.put("Aadhar_Number","111111111111" );
-//		obj.put("Phone_Number", "1111111122");
-//		obj.put("First_Name" , "dlet");
-//		obj.put("Gender" , "Male");
-//		obj.put("Address_Line_1" , "adders");
-//		obj.put("City" , "rsonn");
-//		obj.put("State" , "harysadna");
-//		obj.put("PinCode" , "110095");
-//		obj.put("Country", "Japan");
-//		obj.put("Current_Status", "neg");
-
-//		s.Delete(obj);
-//	   String[] features = {"Aadhar_Number" ,"Age" ,"PinCode"};
-//	   List<JSONObject> list = s.Read(features, "Person");
-//	   int i = 0;
-//	   while(i < list.size()) {
-//			JSONObject new_json_obj = list.get(i);
-//			for (String f : features) {
-//				System.out.print(f+" : " +new_json_obj.get(f)+" ");
-//			}
-//		System.out.println();
-//		i++;
-//	   }
 		
-		//e.Delete(obj , "Foreign_Visit");
-	// s.Delete(obj);
+		//obj.put("Aadhar_Number", "623456789123");
+
+		//obj.put("Last_Name", "E");
+		//obj.put("First_Name", "F");
+		obj.put("city",  "kali");
+		obj.put("state", "nagar");
+	//	obj.put("Phone_Number", "9988776655");
+		ArrayList<JSONObject> list =  e.Read(obj ,"Nearby_Recovered_Cases");
+	  for(JSONObject ob :list ) {
+		  System.out.println(ob);
+	  }
 	}
 
 

@@ -1,5 +1,7 @@
 package DataBase_Interface;
 
+import java.util.ArrayList;
+
 import org.json.JSONObject;
 
 import SQL_Support.SQL_Commands;
@@ -43,7 +45,7 @@ public class Execute_Statement {
 			}
 		} catch (Exception e) {
 			System.out.println(e);
-			System.out.println("error in insert Execute_Statement");
+			System.out.println("error in delete Execute_Statement");
 		}
 	}
 	public void Update(JSONObject what ,  JSONObject where , String view) {
@@ -58,26 +60,27 @@ public class Execute_Statement {
 			for (int i = 0  ; i<where.length() ; i++) {
 				where_array[i].remove("Status");
 				what_array[i].remove("Status");
-				sql.Update(what_array[i]  , what_array[i]);
+				sql.Update(what_array[i]  , where_array[i]);
 			}
 		} catch (Exception e) {
 			System.out.println(e);
-			System.out.println("error in insert Execute_Statement");
+			System.out.println("error in update Execute_Statement");
 		}
 	}
-	public void Read(JSONObject obj, String view) {
+	public ArrayList<JSONObject> Read(JSONObject obj, String type) {
 		try {
-			Entity entity = new Entity();
-			JSONObject[] obj_array = entity.Split_Json_Objects(obj, view);
+			Get_Read_Query read = new Get_Read_Query();
+			String required_Query = read.get(obj, type);
+			return (ArrayList<JSONObject>) sql.Read(required_Query, read.values , read.features);
 			
-			for (JSONObject object : obj_array) {
-
-				sql.Insert(object);
-			}
+			
 		} catch (Exception e) {
 			System.out.println(e);
-			System.out.println("error in insert Execute_Statement");
+			System.out.println("Error in Read Execute_Statement");
 		}
+		return null;
+			
+		
 	}
 	
 	public boolean Possible(JSONObject[] obj) {
