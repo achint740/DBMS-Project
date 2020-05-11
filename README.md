@@ -24,8 +24,8 @@ MYSQL commands :
     ) ;
     
      ALTER TABLE PERSON
-    -> ADD COLUMN
-    -> PASSWORD VARCHAR(50) NOT NULL;
+     ADD COLUMN
+     PASSWORD VARCHAR(50) NOT NULL;
 
 
 
