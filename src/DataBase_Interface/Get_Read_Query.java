@@ -64,6 +64,32 @@ public class Get_Read_Query {
 			features[0] = "Nearby_Cases";
 			
 		}
+		
+		//To know the total cases in a hospital
+		else if(type.equals("Total_Hosp_Cases")) {
+			query = " SELECT COUNT(Patient.Patient_ID) AS Total_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=?; ";
+			
+			values = new String[1];
+			values[0] = (String) obj.get("Hospital_ID") + "";
+			
+			features = new String[1];
+			features[0] = "Total_Hosp_Cases";
+			
+		} else if(type.equals("Active_Hosp_Cases")) {
+			query = " SELECT COUNT(Patient.Patient_ID AS Active_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Date_Discharge IS NOT NULL; ";
+			values = new String[1];
+			values[0] = (String) obj.get("Hospital_ID") + "";
+			
+			features = new String[1];
+			features[0] = "Active_Hosp_Cases";
+		} else if(type.equals("Treated_Hosp_Cases")) {
+			query = " SELECT COUNT(Patient.Patient_ID AS Treated_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Date_Discharge IS NULL; ";
+			values = new String[1];
+			values[0] = (String) obj.get("Hospital_ID") + "";
+			
+			features = new String[1];
+			features[0] = "Treated_Hosp_Cases";
+		}
 		return query;
 	}
 }

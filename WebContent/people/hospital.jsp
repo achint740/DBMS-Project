@@ -17,5 +17,18 @@
 	<h2>Quarantine Details Form<a href="../forms/quarantine.jsp">Fill this form</a></h2>
 	
 	<h2>Covid-19 Special Teams Details Form<a href="../forms/teams.jsp">Fill this form</a></h2>
+	
+	<h2>To see the total cases admitted in your Hospital</h2>
+	
+	<form method="POST" action="../Displays/hosp_cases.jsp">
+		<p>Please Enter the Hospital ID</p>
+		<input type="text" name="hid">
+		<select name="type">
+			<option>Total_Hosp_Cases</option>
+			<option>Active_Hosp_Cases</option>
+			<option>Treated_Hosp_Cases</option>
+		</select>
+		<input type="submit" value="Enter">
+	</form>
 </body>
 </html>

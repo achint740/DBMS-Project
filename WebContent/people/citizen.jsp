@@ -27,7 +27,7 @@
 			   
 		</form>
 		
-	    <form action="../Displays/total_cases">
+	    <form method="post" action="../Displays/total_cases.jsp">
 	    	
 	    	<h2>Click Here To Know The Total Cases In India</h2>
 	    	<input type="submit" value="Enter">

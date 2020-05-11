@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -21,8 +22,8 @@
 	    	obj.put("state",state);
 	    	
 	    	Execute_Statement s = new Execute_Statement();
-	    	s.Read(obj, "Details_Nearby_Hospital");
-		
+	    	ArrayList<JSONObject> hosp_list =  s.Read(obj, "Details_Nearby_Hospital");
+		    out.println(hosp_list);
 		%>
 </body>
 </html>
