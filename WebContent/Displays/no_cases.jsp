@@ -1,4 +1,5 @@
-<%@page import="org.json.JSONObject"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.json.*"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -16,7 +17,7 @@
 			String type = request.getParameter("type");
 			
 			//Check
-			out.println("Location : " + city + state + " Type : " + type);
+			//out.println("Location : " + city + state + " Type : " + type);
 			
 			//Build a JSON Object
 			JSONObject a = new JSONObject();
@@ -25,8 +26,8 @@
 			
 			//Send this and get the total cases
 			Execute_Statement read_obj = new Execute_Statement();
-			read_obj.Read(a,type);
-			
+			ArrayList<JSONObject> cases_list = read_obj.Read(a,type);
+			out.println(cases_list);
 		%>
 
 </body>

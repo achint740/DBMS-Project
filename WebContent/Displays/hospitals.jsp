@@ -15,12 +15,13 @@
 			String city = request.getParameter("city");
 	    	String state = request.getParameter("state");
 	    	
+	    	
 	    	JSONObject obj = new JSONObject();
 	    	obj.put("city",city);
 	    	obj.put("state",state);
 	    	
 	    	Execute_Statement s = new Execute_Statement();
-	    	s.Read(obj, "Hospitals");
+	    	s.Read(obj, "Details_Nearby_Hospital");
 		
 		%>
 </body>

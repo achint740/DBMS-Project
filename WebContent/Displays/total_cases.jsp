@@ -11,7 +11,6 @@
 <body>
 	<%
 		JSONObject obj = new JSONObject();
-		obj.put("Country","India");
 		
 		Execute_Statement read_obj = new Execute_Statement();
 		read_obj.Read(obj, "Total_Cases");

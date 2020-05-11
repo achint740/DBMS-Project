@@ -19,9 +19,9 @@
 			   <input name="city" placeholder="CITY">
 			   <input name="state" placeholder="STATE">
 			   <select name="type">
-			   		<option>Total_Cases</option>
-			   		<option>Total_Active_Cases</option>
-			   		<option>Total_Recovered_Cases</option>
+			   		<option>Nearby_Cases</option>
+			   		<option>Nearby_Active_Cases</option>
+			   		<option>Nearby_Recovered_Cases</option>
 			   </select>
 			   <input type="submit" value="Enter">
 			   
