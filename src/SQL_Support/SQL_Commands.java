@@ -117,7 +117,7 @@ public class SQL_Commands {
 	}
 
 	public List<JSONObject> Read(String querry , String[] values ,String[] features) {
-		//System.out.println(querry);
+		System.out.println(querry);
 		PreparedStatement ps = null;
 		List<JSONObject> list = null;
 		ResultSet rs = null;

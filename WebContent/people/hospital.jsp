@@ -30,5 +30,17 @@
 		</select>
 		<input type="submit" value="Enter">
 	</form>
+	
+	<h2>To See A Patient's INFO</h2>
+	<form method="post" action="../Displays/patient_info.jsp">
+		<input type="text" placeholder="Enter PID" name="pid">
+		<input type="submit" value="Enter"> 
+	</form>
+	
+	<h2>To see the list of patients</h2>
+	<form method="post" action="../Displays/patient_list.jsp">
+		<input type="text" placeholder="Enter HID" name="hid">
+		<input type="submit" value="Enter"> 
+	</form>
 </body>
 </html>

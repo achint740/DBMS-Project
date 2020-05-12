@@ -76,19 +76,38 @@ public class Get_Read_Query {
 			features[0] = "Total_Hosp_Cases";
 			
 		} else if(type.equals("Active_Hosp_Cases")) {
-			query = " SELECT COUNT(Patient.Patient_ID AS Active_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Date_Discharge IS NOT NULL; ";
+			query = " SELECT COUNT(Patient.Patient_ID) AS Active_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Patient.Date_Discharge IS NOT NULL; ";
 			values = new String[1];
 			values[0] = (String) obj.get("Hospital_ID") + "";
 			
 			features = new String[1];
 			features[0] = "Active_Hosp_Cases";
 		} else if(type.equals("Treated_Hosp_Cases")) {
-			query = " SELECT COUNT(Patient.Patient_ID AS Treated_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Date_Discharge IS NULL; ";
+			query = " SELECT COUNT(Patient.Patient_ID) AS Treated_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Patient.Date_Discharge IS NULL; ";
 			values = new String[1];
 			values[0] = (String) obj.get("Hospital_ID") + "";
 			
 			features = new String[1];
 			features[0] = "Treated_Hosp_Cases";
+		}
+		
+		else if(type.equals("Patient_Info")) {
+			query = " SELECT * FROM PATIENT INNER JOIN PERSON ON PATIENT.AADHAR_NUMBER=PERSON.AADHAR_NUMBER WHERE PATIENT.PATIENT_ID=?; ";
+			values = new String[1];
+			values[0] = (String) obj.get("Patient_ID");
+			
+			features = new String[10];
+			features[0] = "Aadhar_Number";
+			//Isse complete karna hai abhi
+		} 
+		
+		else if(type.equals("Patient_List")) {
+			query = " Select T.Patient_ID,Person.Aadhar_Number,Person.First_Name,Person.Last_Name,Person.Age,Person.Gender,Person.Address_Line_1,Person.City,Person.State,Person.PinCode from person inner join (SELECT Patient.Aadhar_Number AS aadhar,Patient.Patient_ID FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=doctor.Doctor_ID WHERE Doctor.Hospital_ID=? ) AS T ON person.Aadhar_Number=T.aadhar; ";
+			values = new String[1];
+			values[0] = (String) obj.get("Patient_ID");
+			
+			features = new String[10];
+			//Isse complete karna hai
 		}
 		return query;
 	}
