@@ -117,17 +117,18 @@ public class SQL_Commands {
 	}
 
 	public List<JSONObject> Read(String querry , String[] values ,String[] features) {
-		System.out.println(querry);
+		System.out.println("Query is : " + querry);
 		PreparedStatement ps = null;
 		List<JSONObject> list = null;
 		ResultSet rs = null;
 		try {
 			ps = connection.prepareStatement(querry );
-			if(values!=null)
-			for(int i = 1  ; i <= values.length ;i++ ) {
-				ps.setString(i , values[i-1]);
+			if(values!=null) {
+				for(int i = 1  ; i <= values.length ;i++ ) {
+					ps.setString(i , values[i-1]);
+			    }
 			}
-			System.out.println(ps);
+			System.out.println("Hello" + ps);
 			rs = ps.executeQuery();
 			list = new ArrayList<JSONObject>();
 			while (rs.next()) {

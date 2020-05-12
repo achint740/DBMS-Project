@@ -42,5 +42,11 @@
 		<input type="text" placeholder="Enter HID" name="hid">
 		<input type="submit" value="Enter"> 
 	</form>
+	
+	<h2>To see the list of your doctors</h2>
+	<form method="post" action="../Displays/Doctor_Info.jsp">
+		<input type="text" placeholder="Enter HID" name="hid">
+		<input type="submit" value="Enter">
+	</form>
 </body>
 </html>

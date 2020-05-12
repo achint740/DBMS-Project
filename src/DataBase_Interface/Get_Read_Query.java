@@ -109,6 +109,43 @@ public class Get_Read_Query {
 			features = new String[10];
 			//Isse complete karna hai
 		}
+		else if(type.equals("Doctor_Info")) {
+			query = "SELECT NAME,DOCTOR_ID,QUALIFICATION FROM DOCTOR WHERE HOSPITAL_ID=?;";
+			values = new String[1];
+			values[0] = (String) obj.get("Hospital_ID");
+			
+			features = new String[3];
+			features[0] = "NAME";
+			features[1] = "DOCTOR_ID";
+			features[2] = "QUALIFICATION";
+		}
+		else if(type.equals("State_Analysis")) {
+			query = " SELECT PERSON.STATE AS STATE_SELECTED,COUNT(PATIENT.PATIENT_ID) AS CNT FROM PATIENT INNER JOIN PERSON ON PATIENT.AADHAR_NUMBER = PERSON.AADHAR_NUMBER GROUP BY STATE; ";
+			values = new String[0];
+			
+			features = new String[2];
+			features[0] = "STATE_SELECTED";
+			features[1] = "CNT";
+		}
+		else if(type.equals("City_Analysis")) {
+			query = " SELECT PERSON.CITY AS CITY_SELECTED,COUNT(PATIENT.PATIENT_ID) AS CNT FROM PATIENT INNER JOIN PERSON ON PATIENT.AADHAR_NUMBER=PERSON.AADHAR_NUMBER WHERE PERSON.STATE=? GROUP BY PERSON.CITY; ";
+			values = new String[1];
+			values[0] = (String) obj.get("state");
+			features = new String[2];
+			features[0] = "CITY_SELECTED";
+			features[1] = "CNT";
+		}
+		else if(type.equals("Hosp_State")) {
+			query = " SELECT Hospital_ID,Name,City,Pincode FROM hospital WHERE State=?; ";
+			values = new String[1];
+			values[0] = (String) obj.get("state");
+			features = new String[4];
+			features[0] = "Hospital_ID";
+			features[1] = "Name";
+			features[2] = "City";
+			features[3] = "Pincode";
+		}
+		
 		return query;
 	}
 }
