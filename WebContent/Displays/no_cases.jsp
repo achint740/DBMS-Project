@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="org.json.JSONObject"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -25,8 +26,8 @@
 			
 			//Send this and get the total cases
 			Execute_Statement read_obj = new Execute_Statement();
-			read_obj.Read(a,type);
-			
+			ArrayList<JSONObject> list = read_obj.Read(a,type);
+			out.println(list);
 		%>
 
 </body>
