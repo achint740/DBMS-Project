@@ -12,11 +12,10 @@
 <body>
 	<%
 		JSONObject obj = new JSONObject();
-		
-		Execute_Statement read_obj = new Execute_Statement();
-		ArrayList<JSONObject> x = read_obj.Read(obj, "Total_Cases");
+	
+		Execute_Statement s = new Execute_Statement();
+		ArrayList<JSONObject> x =  s.Read(obj, "State_Analysis");
 		out.println(x);
-		
 	%>
 </body>
 </html>

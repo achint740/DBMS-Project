@@ -19,15 +19,15 @@
 			   <input name="city" placeholder="CITY">
 			   <input name="state" placeholder="STATE">
 			   <select name="type">
-			   		<option>Total_Cases</option>
-			   		<option>Total_Active_Cases</option>
-			   		<option>Total_Recovered_Cases</option>
+			   		<option>Nearby_Cases</option>
+			   		<option>Nearby_Active_Cases</option>
+			   		<option>Nearby_Recovered_Cases</option>
 			   </select>
 			   <input type="submit" value="Enter">
 			   
 		</form>
 		
-	    <form action="../Displays/total_cases">
+	    <form method="post" action="../Displays/total_cases.jsp">
 	    	
 	    	<h2>Click Here To Know The Total Cases In India</h2>
 	    	<input type="submit" value="Enter">

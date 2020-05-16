@@ -11,12 +11,15 @@
 </head>
 <body>
 	<%
+		String state = request.getParameter("state");
+		out.println(state);
+		
 		JSONObject obj = new JSONObject();
+		obj.put("state",state);
 		
-		Execute_Statement read_obj = new Execute_Statement();
-		ArrayList<JSONObject> x = read_obj.Read(obj, "Total_Cases");
+		Execute_Statement s = new Execute_Statement();
+		ArrayList<JSONObject> x = s.Read(obj, "City_Analysis");
 		out.println(x);
-		
 	%>
 </body>
 </html>

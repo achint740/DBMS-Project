@@ -1,5 +1,5 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="org.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -11,12 +11,14 @@
 </head>
 <body>
 	<%
+		String d = request.getParameter("d_date");
+		
 		JSONObject obj = new JSONObject();
+		obj.put("date",d);
 		
-		Execute_Statement read_obj = new Execute_Statement();
-		ArrayList<JSONObject> x = read_obj.Read(obj, "Total_Cases");
+		Execute_Statement s = new Execute_Statement();
+		ArrayList<JSONObject> x = s.Read(obj, "Date_Analysis");
 		out.println(x);
-		
 	%>
 </body>
 </html>

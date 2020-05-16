@@ -11,12 +11,14 @@
 </head>
 <body>
 	<%
+		String hid = request.getParameter("hid");
+	
 		JSONObject obj = new JSONObject();
-		
-		Execute_Statement read_obj = new Execute_Statement();
-		ArrayList<JSONObject> x = read_obj.Read(obj, "Total_Cases");
+		obj.put("Hospital_ID",hid);
+	
+		Execute_Statement e = new Execute_Statement();
+		ArrayList<JSONObject> x = e.Read(obj, "Patient_List");
 		out.println(x);
-		
 	%>
 </body>
 </html>
