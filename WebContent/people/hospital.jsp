@@ -18,6 +18,10 @@
 	
 	<h2>Covid-19 Special Teams Details Form<a href="../forms/teams.jsp">Fill this form</a></h2>
 	
+	<h2>Add Doctor<a href="../forms/doctor.jsp">Fill this form</a></h2>
+	
+	<a href="doctor.jsp"><h2>Doctor's Portal</h2></a>
+	
 	<h2>To see the total cases admitted in your Hospital</h2>
 	
 	<form method="POST" action="../Displays/hosp_cases.jsp">

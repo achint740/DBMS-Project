@@ -145,6 +145,16 @@ public class Get_Read_Query {
 			features[2] = "City";
 			features[3] = "Pincode";
 		}
+		else if(type.equals("MyPatients")) {
+			query = " SELECT Patient_ID,Date_Admit,Date_Discharge,Testing_Status FROM Patient WHERE DOCTOR_ID=?;";
+			values = new String[1];
+			values[0] = (String) obj.get("Doctor_ID");
+			features = new String[4];
+			features[0] = "Patient_ID";
+			features[1] = "Date_Admit";
+			features[2] = "Date_Discharge";
+			features[3] = "Testing_Status";
+		}
 		
 		return query;
 	}

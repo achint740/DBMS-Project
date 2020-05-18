@@ -128,7 +128,7 @@ public class SQL_Commands {
 					ps.setString(i , values[i-1]);
 			    }
 			}
-			System.out.println("Hello" + ps);
+			System.out.println("Hello  " + ps);
 			rs = ps.executeQuery();
 			list = new ArrayList<JSONObject>();
 			while (rs.next()) {
