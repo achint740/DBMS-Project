@@ -155,6 +155,15 @@ public class Get_Read_Query {
 			features[2] = "Date_Discharge";
 			features[3] = "Testing_Status";
 		}
+		else if(type.equals("Teams")) {
+			query = " SELECT TEAM_ID,Head_Name,City,State FROM Team;";
+			values = new String[0];
+			features = new String[4];
+			features[0] = "Team_ID";
+			features[1] = "Head_Name";
+			features[2] = "City";
+			features[3] = "State";
+		}
 		
 		return query;
 	}

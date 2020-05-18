@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Indian Citizen Profile</title>
+<title>Hospitals</title>
 </head>
 <body>
 	<form method="POST" action="controller/insert/hospital_c.jsp">
