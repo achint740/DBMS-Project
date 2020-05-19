@@ -11,7 +11,7 @@ public class Execute_Statement {
 
 	public Execute_Statement() {
 		// TODO Auto-generated constructor stub
-		sql = new SQL_Commands("root", "Dawra@740", "cms");
+		sql = new SQL_Commands("root", "Jains1008@", "cms");
 	}
 
 	public void Insert(JSONObject obj, String view) {
@@ -53,11 +53,15 @@ public class Execute_Statement {
 			Entity entity = new Entity();
 			JSONObject[] what_array = entity.Split_Json_Objects(what, view);
 			JSONObject[] where_array = entity.Split_Json_Objects(where, view);
-		
+		   
 			if (!Possible(where_array)) {
 				throw new  Exception ("Update could not be performed");
 			}
-			for (int i = 0  ; i<where.length() ; i++) {
+			System.out.println(where_array.length);
+			for (int i = 0  ; i<where_array.length; i++) {
+				System.out.println(i);
+				System.out.println(where_array[i] );
+				System.out.println(what_array[i] );
 				where_array[i].remove("Status");
 				what_array[i].remove("Status");
 				sql.Update(what_array[i]  , where_array[i]);

@@ -17,19 +17,20 @@ public class DB_Connect {
 
 //	   SQL_Commands s = new SQL_Commands("root", "Dawra@740", "cms");
 		Execute_Statement e  = new Execute_Statement();
-		JSONObject obj = new JSONObject();
-		
-		//obj.put("Aadhar_Number", "623456789123");
+		JSONObject what = new JSONObject();
+		JSONObject where = new JSONObject();
 
-		//obj.put("Last_Name", "E");
-		//obj.put("First_Name", "F");
-//		obj.put("city",  "kali");
-//		obj.put("state", "nagar");
-		obj.put("Hospital_ID", "H0001");
-		ArrayList<JSONObject> list =  e.Read(obj ,"Patient_List");
-	  for(JSONObject ob :list ) {
-		  System.out.println(ob);
-	  }
+		what.put("Doctor_ID", "abc01");
+		what.put("Patient_ID", "P0001");
+		where.put("Testing_Status", "positive");
+
+	
+		//System.out.println(what +" "+where);
+		e.Update(where, what, "Entity_Patient");
+		//ArrayList<JSONObject> list =  e.Read(obj ,"Entity_Hospital");
+//	  for(JSONObject ob :list ) {
+//		  System.out.println(ob);
+//	  }
 	}
 
 
