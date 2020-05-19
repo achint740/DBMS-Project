@@ -7,7 +7,7 @@ public class Home_Quarantined extends Parent_Table{
 	final public String [] Features = {
 			"Aadhar_Number",
 			"Start_Date",
-			"Person_Contacted" ,
+			"Person_Contacted" 
 	};
     final public HashSet<String> Primary_Key ;
     final public HashMap<String  , String > Foreign_Keys ;

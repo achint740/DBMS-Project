@@ -12,7 +12,8 @@ public class Person extends Parent_Table{
 			"Address_Line_1",
 			"City",
 			"State",
-			"PinCode"
+			"PinCode",
+			
 	};
     final public HashSet<String> Primary_Key ;
 	public Person() {
