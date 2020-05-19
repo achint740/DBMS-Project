@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="POST" action="controller/insert/doctor.jsp">
+	<form method="POST" action="../controller/insert/doctor.jsp">
 	
 		<input name="hid" type="text" placeholder="Hospital ID" minlength="1"><br><br>
 		<input name="doctorid" type="text" placeholder="Doctor ID" minlength="1"><br><br>

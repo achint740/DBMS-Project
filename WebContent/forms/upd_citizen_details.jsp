@@ -13,7 +13,7 @@
 	<form method="post" action="../controller/update/citizen.jsp">
 	
 		<input type="text" name="aadhar" placeholder="Aadhar_No">
-		<input type="text" name="contact" placeholder="New Mobile">
+		<input type="text" name="age" placeholder="Enter Your age">
 		<input type="submit" value="Enter">
 		
 	</form>

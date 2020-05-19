@@ -17,11 +17,11 @@
 		
 	</form>
 	
-	<a href="../forms/patient.jsp"><h2>Add A Patient</h2></a>
+	<!-- <a href="../forms/patient.jsp"><h2>Add A Patient</h2></a> -->
 
 	<h2>Update Patient Testing Status</h2>
 	
-	<form action="../update/patient_info.jsp">
+	<form action="../controller/update/patient_info.jsp">
 		<input type="text" name="doctorid" placeholder="Enter Your ID">
 		<input type="text" name="patientid" placeholder="Enter PID">
 		<input type="text" name="test_status" placeholder="Status">

@@ -3,6 +3,7 @@ package SQL_Support;
 import java.util.HashSet;
 
 import Tables.Contact_Details;
+import Tables.Doctor;
 import Tables.Foreign_Visit_Info;
 import Tables.Home_Quarantined;
 import Tables.Hospital;
@@ -40,6 +41,9 @@ public class Table_Features {
 		}else if (Table_Name.equals("Home_Quarantined")) {
 			parent_table = new Home_Quarantined();
 		}
+		else if (Table_Name.equals("Doctor")) {
+			parent_table = new Doctor();
+		}
 		return parent_table.get_features();
 	}
 
@@ -63,6 +67,8 @@ public class Table_Features {
 			parent_table = new Team_Hospital();
 		}else if (Table_Name.equals("Home_Quarantined")) {
 			parent_table = new Home_Quarantined();
+		}else if (Table_Name.equals("Doctor")) {
+			parent_table = new Doctor();
 		}
 		return parent_table.get_primary_key();
 	}

@@ -56,6 +56,7 @@ public class Entity {
 		JSONObject new_obj = new JSONObject();
 
 		for (String feature : Features) {
+			System.out.println(feature);;
 			if (obj.has(feature)) {
 				if (Primary_Key.contains(feature)) {
 					Primary_Key.remove(feature);
@@ -75,6 +76,7 @@ public class Entity {
 		int index = 0;
 		for (String table : Derieved_Tables) {
 			String[] features = table_features.Features(table);
+//			System.out.println(features);
 			HashSet<String> primary_key = new HashSet<String>(table_features.Primary_Key(table));
 			obj_arr[index] = get_JSON(obj, features, primary_key);
 			obj_arr[index].put("Table_Name", table);

@@ -1,5 +1,6 @@
 package DataBase_Interface;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.json.JSONObject;
@@ -17,6 +18,7 @@ public class Execute_Statement {
 	public void Insert(JSONObject obj, String view) {
 		try {
 			Entity entity = new Entity();
+			System.out.println(entity);
 			JSONObject[] obj_array = entity.Split_Json_Objects(obj, view);
 			if (!Possible(obj_array)) {
 				throw new  Exception ("Insert could not be performed");
@@ -24,7 +26,7 @@ public class Execute_Statement {
 			for (JSONObject object : obj_array) {
 				object.remove("Status");
 				sql.Insert(object);
-			}
+			} 
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("error in insert Execute_Statement");
@@ -48,24 +50,28 @@ public class Execute_Statement {
 			System.out.println("error in delete Execute_Statement");
 		}
 	}
-	public void Update(JSONObject what ,  JSONObject where , String view) {
-		try {
+	public void Update(JSONObject what ,  JSONObject where , String view) throws SQLException {
+//		try {
 			Entity entity = new Entity();
 			JSONObject[] what_array = entity.Split_Json_Objects(what, view);
 			JSONObject[] where_array = entity.Split_Json_Objects(where, view);
 		
 			if (!Possible(where_array)) {
-				throw new  Exception ("Update could not be performed");
+//				throw new  Exception ("Update could not be performed");
+			
 			}
+			
 			for (int i = 0  ; i<where.length() ; i++) {
+				System.out.println(what_array[i]+"  ");
 				where_array[i].remove("Status");
 				what_array[i].remove("Status");
 				sql.Update(what_array[i]  , where_array[i]);
 			}
-		} catch (Exception e) {
-			System.out.println(e);
-			System.out.println("error in update Execute_Statement");
-		}
+			
+//		} catch (Exception e) {
+//			System.out.println(e);
+//			System.out.println("error in update Execute_Statement");
+//		}
 	}
 	public ArrayList<JSONObject> Read(JSONObject obj, String type) {
 		try {

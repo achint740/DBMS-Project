@@ -7,7 +7,7 @@
 <title>Foreign Visits</title>
 </head>
 <body>
-	<form method="POST" action="controller/foreign_c.jsp">
+	<form method="POST" action="../controller/insert/foreign_c.jsp">
 
 		<input name="aadhar" type="text" placeholder="Aadhar Number" minlength="12" maxlength="12"><br><br>
 		<input name="country_visit" type="text" placeholder="Country Visted" maxlength="25"><br><br>
