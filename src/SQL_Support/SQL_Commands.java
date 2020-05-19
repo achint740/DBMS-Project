@@ -138,7 +138,6 @@ public class SQL_Commands {
 				}
 				list.add(new_json_obj);
 			}
-
 		} catch (Exception e) {
 			System.out.println("Error in SQL_Commands Read operation " + e);
 		}

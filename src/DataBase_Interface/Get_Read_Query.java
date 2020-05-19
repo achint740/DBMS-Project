@@ -102,23 +102,65 @@ public class Get_Read_Query {
 		} 
 		
 		else if(type.equals("Patient_List")) {
-			query = " Select T.Patient_ID,Person.Aadhar_Number,Person.First_Name,Person.Last_Name,Person.Age,Person.Gender,Person.Address_Line_1,Person.City,Person.State,Person.PinCode from person inner join (SELECT Patient.Aadhar_Number AS aadhar,Patient.Patient_ID FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=doctor.Doctor_ID WHERE Doctor.Hospital_ID=? ) AS T ON person.Aadhar_Number=T.aadhar; ";
+			query =" SELECT PATIENT.Doctor_ID , PATIENT.Patient_ID , PATIENT.Date_Admit , PATIENT.Date_Discharge , PATIENT.Testing_Status "+
+					"   from Doctor INNER JOIN Patient "+
+					 "  on Doctor.Doctor_ID = Patient.Doctor_ID "+
+					  " where Doctor.HOSPITAL_id  =  ? "+
+				"	ORDER BY DATE_DISCHARGE DESc ; ";
+
 			values = new String[1];
-			values[0] = (String) obj.get("Patient_ID");
+			System.out.println(obj);
+			values[0] = (String) obj.get("Hospital_ID");
 			
-			features = new String[10];
-			//Isse complete karna hai
+			features = new String[5];
+			features[0] = "Patient_ID";
+			features[1] = "Date_Admit";
+			features[2] = "Date_Discharge";
+			features[3]= "Testing_Status";
+			features[4] = "Doctor_ID";
 		}
 		else if(type.equals("Doctor_Info")) {
-			query = "SELECT NAME,DOCTOR_ID,QUALIFICATION FROM DOCTOR WHERE HOSPITAL_ID=?;";
+			query =" SELECT Doctor.NAME AS NAME,Doctor.DOCTOR_ID AS DOCTOR_ID ,Doctor.QUALIFICATION as QUALIFICATION, Count(Patient.patient_id) as TOTAL_PATIENTS, "+
+				"	 Count(CASE  when  Patient.date_discharge is not  NULL THEN 1 END) as ACTIVE_PATIENTS,"+
+				"	 Count(CASE  when  Patient.date_discharge is   NULL THEN 1 END) as RECOVERED_PATIENTS  "+
+				"	    from Doctor INNER JOIN Patient  "+
+				"	      on Doctor.Doctor_ID = Patient.Doctor_ID "+
+				"	      where Doctor.Hospital_id  =  ? "+
+				"	      group by Doctor.doctor_ID ;";
+
 			values = new String[1];
 			values[0] = (String) obj.get("Hospital_ID");
 			
-			features = new String[3];
+			features = new String[6];
 			features[0] = "NAME";
 			features[1] = "DOCTOR_ID";
 			features[2] = "QUALIFICATION";
+			features[3] = "TOTAL_PATIENTS";
+			features[4] = "ACTIVE_PATIENTS";
+			features[5] = "RECOVERED_PATIENTS";
+			
 		}
+		else if(type.equals("Doctor_Patients")) {
+			query =" SELECT person.First_Name,person.Last_Name  ,person.Age, T.Patient_ID, T.Date_Admit , T.Date_Discharge , T.Testing_Status"+
+					 " from  Person inner join "+
+					    " ( select P.Aadhar_Number, P.Patient_ID , P.Date_Admit , P.Date_Discharge , P.Testing_Status from Doctor INNER JOIN Patient as P "+
+					   "  on Doctor.Doctor_ID = P.Doctor_ID "+
+					  "   where Doctor.DOCTOR_id  =  ?) as T "+
+					 " on T.aadhar_number = person.aadhar_number "+
+					"  ORDER BY T.DATE_DISCHARGE DESC ;";
+
+			values = new String[1];
+			values[0] = (String) obj.get("Doctor_ID");
+			
+			features = new String[7];
+			features[0] = "First_Name";
+			features[1] = "Patient_ID";
+			features[2] = "Date_Admit";
+			features[3] = "Date_Discharge";
+			features[4] = "Testing_Status";
+			features[5] = "Last_Name";			
+			features[6] = "Age";
+					}
 		else if(type.equals("State_Analysis")) {
 			query = " SELECT PERSON.STATE AS STATE_SELECTED,COUNT(PATIENT.PATIENT_ID) AS CNT FROM PATIENT INNER JOIN PERSON ON PATIENT.AADHAR_NUMBER = PERSON.AADHAR_NUMBER GROUP BY STATE; ";
 			values = new String[0];
@@ -144,25 +186,6 @@ public class Get_Read_Query {
 			features[1] = "Name";
 			features[2] = "City";
 			features[3] = "Pincode";
-		}
-		else if(type.equals("MyPatients")) {
-			query = " SELECT Patient_ID,Date_Admit,Date_Discharge,Testing_Status FROM Patient WHERE DOCTOR_ID=?;";
-			values = new String[1];
-			values[0] = (String) obj.get("Doctor_ID");
-			features = new String[4];
-			features[0] = "Patient_ID";
-			features[1] = "Date_Admit";
-			features[2] = "Date_Discharge";
-			features[3] = "Testing_Status";
-		}
-		else if(type.equals("Teams")) {
-			query = " SELECT TEAM_ID,Head_Name,City,State FROM Team;";
-			values = new String[0];
-			features = new String[4];
-			features[0] = "Team_ID";
-			features[1] = "Head_Name";
-			features[2] = "City";
-			features[3] = "State";
 		}
 		
 		return query;

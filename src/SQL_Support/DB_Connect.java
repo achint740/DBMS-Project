@@ -23,10 +23,10 @@ public class DB_Connect {
 
 		//obj.put("Last_Name", "E");
 		//obj.put("First_Name", "F");
-		obj.put("city",  "kali");
-		obj.put("state", "nagar");
-	//	obj.put("Phone_Number", "9988776655");
-		ArrayList<JSONObject> list =  e.Read(obj ,"Nearby_Recovered_Cases");
+//		obj.put("city",  "kali");
+//		obj.put("state", "nagar");
+		obj.put("Doctor_ID", "abc01");
+		ArrayList<JSONObject> list =  e.Read(obj ,"Doctor_Patients");
 	  for(JSONObject ob :list ) {
 		  System.out.println(ob);
 	  }
