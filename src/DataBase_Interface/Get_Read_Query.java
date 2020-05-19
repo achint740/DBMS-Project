@@ -207,11 +207,32 @@ public class Get_Read_Query {
 		}else if(type.equals("Home_to_Govt_Guarantine")) {
 			query = " Select * from person inner join Govt_Quarantine_Buffer on "
 					+" person.aadhar_number = Govt_Quarantine_Buffer.aadhar_number "+
-					"where city = ? and state= ? ";
+					"where city = (Select city from teams where team_id= ?)"+
+					"and state=  (Select state from teams where team_id= ?)";
 			
 			values = new String[2];
-			values[0] = (String) obj.get("city");
-			values[1] = (String) obj.get("state");
+			values[0] = (String) obj.get("Team_ID");
+			values[1] = (String) obj.get("Team_ID");
+			
+			features = new String[9];
+			features[0]="Aadhar_Number";
+			features[1]="First_Name";
+			features[2]="Last_Name";
+			features[3]="Age";
+			features[4]="Gender";
+			features[5]="Address_Line_1";
+			features[6]="City";
+			features[7]="State";
+			features[8]="PinCode";
+		}else if(type.equals("Govt_Guarantine_to_Hosptital")) {
+			query = " Select * from person inner join Patient_Buffer on "
+					+" person.aadhar_number = Patient_Buffer.aadhar_number "+
+					"where person.city = (Select city from teams where team_id= ?)"+
+					" and person.state= (Select state from teams where team_id= ?) ; ";
+			
+			values = new String[2];
+			values[0] = (String) obj.get("Team_ID");
+			values[1] = (String) obj.get("Team_ID");
 			
 			features = new String[9];
 			features[0]="Aadhar_Number";
@@ -224,14 +245,50 @@ public class Get_Read_Query {
 			features[7]="State";
 			features[8]="PinCode";
 		}
-
+        
 		else if(type.equals("Foreign_List")) {
 			query = " SELECT foreign_visit_info.aadhar_number,foreign_visit_info.date_visit,person.first_name,person.last_name,person.age,person.gender,person.address_line_1,person.city,person.state,person.pincode FROM foreign_visit_info INNER JOIN person ON foreign_visit_info.aadhar_number=person.aadhar_number WHERE foreign_visit_info.current_status='NOT ADMITTED' AND person.city=?;";
 			values = new String[1];
 			values[0] = (String) obj.get("city");
 			features = new String[10];
 		}
-		
+		else if (type.equals("Details_Team_Hospital")) {
+
+			query ="SELECT  Hospital.Name as Name, City, State,Count(Patient_ID)  as Patient, Count(Distinct Doctor_ID)  as Doctor from Hospital INNER JOIN (Select Doctor.Hospital_ID , Doctor.Doctor_ID , Patient.Patient_ID from Doctor INNER JOIN Patient on Doctor.Doctor_ID = Patient.Doctor_ID)as der On der.Hospital_ID = Hospital.Hospital_id "+ 
+			"  where Hospital.city = (Select city from teams where team_id= ?) "+
+					" and Hospital.state =(Select state from teams where team_id= ?) "+
+			"Group BY Hospital.Hospital_ID ";
+			values = new String[2];
+			values[0] = (String) obj.get("Team_ID");
+			values[1] = (String) obj.get("Team_ID");
+			
+			
+			features = new String[5];
+		      features[0] = "Name";
+		      features[1] = "City";
+		      features[2]=  "State";
+		      features[3] = "Patient";
+		      features[4] = "Doctor";
+		}else if(type.equals("Govt_Guarantine_to_Patient")) {
+			query = " Select * from person inner join Patient_Buffer on "
+					+" person.aadhar_number = Patient_Buffer.aadhar_number "+
+					"where Patient_Buffer.Hospital_ID = ? ";
+			
+			values = new String[1];
+			values[0] = (String) obj.get("Hospital_ID");
+					
+			features = new String[9];
+			features[0]="Aadhar_Number";
+			features[1]="First_Name";
+			features[2]="Last_Name";
+			features[3]="Age";
+			features[4]="Gender";
+			features[5]="Address_Line_1";
+			features[6]="City";
+			features[7]="State";
+			features[8]="PinCode";
+		}
+        
 
 		return query;
 	}
