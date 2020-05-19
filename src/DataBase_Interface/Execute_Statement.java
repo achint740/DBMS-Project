@@ -50,8 +50,9 @@ public class Execute_Statement {
 			System.out.println("error in delete Execute_Statement");
 		}
 	}
-	public void Update(JSONObject what ,  JSONObject where , String view) throws SQLException {
+	public void Update(JSONObject what ,  JSONObject where , String view)  {
 		try {
+			
 			Entity entity = new Entity();
 			JSONObject[] what_array = entity.Split_Json_Objects(what, view);
 			JSONObject[] where_array = entity.Split_Json_Objects(where, view);
@@ -60,7 +61,6 @@ public class Execute_Statement {
 				throw new  Exception ("Update could not be performed");
 			
 			}
-			System.out.println(where_array.length);
 			for (int i = 0  ; i<where_array.length; i++) {
 				where_array[i].remove("Status");
 				what_array[i].remove("Status");

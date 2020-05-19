@@ -21,7 +21,7 @@ public class DB_Connect {
 		JSONObject where = new JSONObject();
 
 		what.put("Doctor_ID", "abc01");
-		what.put("Patient_ID", "P0001");
+		what.put("Patient_ID", "P0002");
 		where.put("Testing_Status", "positive");
 
 	

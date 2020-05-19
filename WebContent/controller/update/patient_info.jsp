@@ -21,7 +21,7 @@
 		where.put("Doctor_ID",d_id);
 		where.put("Patient_ID",p_id);
 		what.put("Testing_Status",status);
-		
+		System.out.print(what);
 		Execute_Statement e = new Execute_Statement();
 		e.Update(what, where, "Entity_Patient");
 	%>

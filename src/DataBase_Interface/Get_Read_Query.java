@@ -204,17 +204,25 @@ public class Get_Read_Query {
 			features[1] = "Name";
 			features[2] = "City";
 			features[3] = "Pincode";
-		}else if(type.equals("person_to_govt_quarantine")) {
-			query = " SELECT Hospital_ID,Name,City,Pincode FROM hospital WHERE ";
+		}else if(type.equals("Home_to_Govt_Guarantine")) {
+			query = " Select * from person inner join Govt_Quarantine_Buffer on "
+					+" person.aadhar_number = Govt_Quarantine_Buffer.aadhar_number "+
+					"where city = ? and state= ? ";
 			
-			values = new String[1];
-			values[0] = (String) obj.get("state");
+			values = new String[2];
+			values[0] = (String) obj.get("city");
+			values[1] = (String) obj.get("state");
 			
-			features = new String[4];
-			features[0] = "Hospital_ID";
-			features[1] = "Name";
-			features[2] = "City";
-			features[3] = "Pincode";
+			features = new String[9];
+			features[0]="Aadhar_Number";
+			features[1]="First_Name";
+			features[2]="Last_Name";
+			features[3]="Age";
+			features[4]="Gender";
+			features[5]="Address_Line_1";
+			features[6]="City";
+			features[7]="State";
+			features[8]="PinCode";
 		}
 
 		else if(type.equals("Foreign_List")) {
