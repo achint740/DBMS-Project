@@ -17,5 +17,11 @@
 		<input type="submit" value="Enter">
 	</form>
 	
+	<h2>View Hospitals Under Your Team</h2>
+	<form action="../Displays/team_hosp.jsp" method="post">
+		<input type="text" name="teamid" placeholder="Enter Your Team-ID">
+		<input type="submit" value="Enter">
+	</form>
+	
 </body>
 </html>
