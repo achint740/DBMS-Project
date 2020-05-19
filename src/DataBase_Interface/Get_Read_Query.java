@@ -65,6 +65,8 @@ public class Get_Read_Query {
 			
 		}
 		
+		
+		
 		//To know the total cases in a hospital
 		else if(type.equals("Total_Hosp_Cases")) {
 			query = " SELECT COUNT(Patient.Patient_ID) AS Total_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=?; ";
@@ -96,23 +98,37 @@ public class Get_Read_Query {
 			values = new String[1];
 			values[0] = (String) obj.get("Patient_ID");
 			
-			features = new String[10];
-			features[0] = "Aadhar_Number";
-			//Isse complete karna hai abhi
+			features = new String[8];
+			features[0] = "First_Name";
+			features[1] = "Patient_ID";
+			features[2] = "Date_Admit";
+			features[3] = "Date_Discharge";
+			features[4] = "Testing_Status";
+			features[5] = "Last_Name";			
+			features[6] = "Age";
+			features[7] = "Doctor_ID";
+			
+			
 		} 
 		
 		else if(type.equals("Patient_List")) {
-			query =" SELECT PATIENT.Doctor_ID , PATIENT.Patient_ID , PATIENT.Date_Admit , PATIENT.Date_Discharge , PATIENT.Testing_Status "+
-					"   from Doctor INNER JOIN Patient "+
-					 "  on Doctor.Doctor_ID = Patient.Doctor_ID "+
-					  " where Doctor.HOSPITAL_id  =  ? "+
-				"	ORDER BY DATE_DISCHARGE DESc ; ";
+			query =" SELECT person.First_Name,person.Last_Name  ,person.Age, T.Doctor_ID, T.Patient_ID, T.Date_Admit , T.Date_Discharge , T.Testing_Status"+
+					 " from  Person inner join "+
+					    " ( select P.Aadhar_Number, P.Patient_ID ,P.Doctor_ID , P.Date_Admit , P.Date_Discharge , P.Testing_Status from Doctor INNER JOIN Patient as P "+
+					   "  on Doctor.Doctor_ID = P.Doctor_ID "+
+					  "   where Doctor.Hospital_id  =  ?) as T "+
+					 " on T.aadhar_number = person.aadhar_number "+
+					"  ORDER BY T.DATE_DISCHARGE DESC ;";
+
 
 			values = new String[1];
 			System.out.println(obj);
 			values[0] = (String) obj.get("Hospital_ID");
 			
-			features = new String[5];
+			features = new String[8];
+			features[7] = "First_Name";
+			features[5] = "Last_Name";			
+			features[6] = "Age";
 			features[0] = "Patient_ID";
 			features[1] = "Date_Admit";
 			features[2] = "Date_Discharge";
@@ -179,15 +195,27 @@ public class Get_Read_Query {
 		}
 		else if(type.equals("Hosp_State")) {
 			query = " SELECT Hospital_ID,Name,City,Pincode FROM hospital WHERE State=?; ";
+			
 			values = new String[1];
 			values[0] = (String) obj.get("state");
+			
+			features = new String[4];
+			features[0] = "Hospital_ID";
+			features[1] = "Name";
+			features[2] = "City";
+			features[3] = "Pincode";
+		}else if(type.equals("person_to_govt_quarantine")) {
+			query = " SELECT Hospital_ID,Name,City,Pincode FROM hospital WHERE ";
+			
+			values = new String[1];
+			values[0] = (String) obj.get("state");
+			
 			features = new String[4];
 			features[0] = "Hospital_ID";
 			features[1] = "Name";
 			features[2] = "City";
 			features[3] = "Pincode";
 		}
-		
 		return query;
 	}
 }

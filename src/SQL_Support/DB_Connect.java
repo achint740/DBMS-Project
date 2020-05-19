@@ -25,8 +25,8 @@ public class DB_Connect {
 		//obj.put("First_Name", "F");
 //		obj.put("city",  "kali");
 //		obj.put("state", "nagar");
-		obj.put("Doctor_ID", "abc01");
-		ArrayList<JSONObject> list =  e.Read(obj ,"Doctor_Patients");
+		obj.put("Hospital_ID", "H0001");
+		ArrayList<JSONObject> list =  e.Read(obj ,"Patient_List");
 	  for(JSONObject ob :list ) {
 		  System.out.println(ob);
 	  }
