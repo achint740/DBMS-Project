@@ -17,7 +17,7 @@
 		obj.put("Doctor_ID",d_id);
 		
 		Execute_Statement e = new Execute_Statement();
-		ArrayList<JSONObject> c = e.Read(obj,"MyPatients");
+		ArrayList<JSONObject> c = e.Read(obj,"My_Patients");
 		out.println(c);
 	%>
 </body>

@@ -15,13 +15,15 @@
 		String p_id = request.getParameter("patientid");
 		String status = request.getParameter("status");
 		
-		JSONObject obj = new JSONObject();
-		obj.put("Doctor_ID",d_id);
-		obj.put("Patient_ID",p_id);
-		obj.put("Testing_Status",status);
+		JSONObject what = new JSONObject();
+		JSONObject where = new JSONObject();
+		
+		where.put("Doctor_ID",d_id);
+		where.put("Patient_ID",p_id);
+		what.put("Testing_Status",status);
 		
 		Execute_Statement e = new Execute_Statement();
-		
+		e.Update(what, where, "Entity_Patient");
 	%>
 	
 </body>

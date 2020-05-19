@@ -156,7 +156,7 @@ public class Get_Read_Query {
 			features[5] = "RECOVERED_PATIENTS";
 			
 		}
-		else if(type.equals("Doctor_Patients")) {
+		else if(type.equals("My_Patients")) {
 			query =" SELECT person.First_Name,person.Last_Name  ,person.Age, T.Patient_ID, T.Date_Admit , T.Date_Discharge , T.Testing_Status"+
 					 " from  Person inner join "+
 					    " ( select P.Aadhar_Number, P.Patient_ID , P.Date_Admit , P.Date_Discharge , P.Testing_Status from Doctor INNER JOIN Patient as P "+

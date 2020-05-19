@@ -7,7 +7,8 @@ public class Doctor extends Parent_Table{
 	final public String [] Features = {
 			"Doctor_ID",
 			"Name",
-		"Hospital_ID"
+			"Hospital_ID",
+			"Qualification"
 	};
     final public HashSet<String> Primary_Key ;
     final public HashMap<String  , String > Foreign_Keys ;

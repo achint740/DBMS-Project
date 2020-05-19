@@ -4,6 +4,7 @@ import java.util.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -144,9 +145,9 @@ public class SQL_Commands {
 		return list;
 	}
 
-	public void Update(JSONObject obj_what, JSONObject obj_where) {
+	public void Update(JSONObject obj_what, JSONObject obj_where) throws SQLException {
 		PreparedStatement ps = null;
-		try {
+//		try {
 
 			String Table_name = obj_where.getString("Table_Name");
 			HashSet<String> Primary_Key = table_features.Primary_Key(Table_name);
@@ -157,7 +158,8 @@ public class SQL_Commands {
 
 			obj_where.remove("Table_Name");
 			obj_what.remove("Table_Name");
-
+			System.out.println(obj_what +" "+obj_where);
+			System.out.println(Table_name + "   " + Primary_Key);
 			JSONArray keys = obj_what.names();
 			List<String> Values_to_prepare_statement = new ArrayList<String>();
 			for (int i = 0; i < keys.length(); ++i) {
@@ -191,18 +193,19 @@ public class SQL_Commands {
 			}
 			if (Primary_Key.size() != 0) {
 				System.out.println("Update Not Possible !");
-				throw new Exception("Whole Data could be Updated");
+//				throw new Exception("Whole Data could be Updated");
 			}
 
 			ps = connection.prepareStatement(query);
 			for (int i = 0; i < Values_to_prepare_statement.size(); i++)
 				ps.setString(i + 1, Values_to_prepare_statement.get(i));
 			ps.executeUpdate();
-		} catch (Exception e) {
-			System.out.println(e);
-			System.out.println("Error in SQL_Commands Update operation");
-		}
-	}
 	
+//		} catch (Exception e) {
+//			System.out.println(e);
+//			System.out.println("Error in SQL_Commands Update operation");
+//		}
+	}
+
 	
 }

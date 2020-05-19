@@ -15,7 +15,7 @@
 	//Get all the parameters
 	String hid = request.getParameter("hid");
 	String name = request.getParameter("hosp_name");
-	String mobile = request.getParameter("mobile");
+	String pin = request.getParameter("pin");
 	String address = request.getParameter("address");
 	String city = request.getParameter("city");
 	String state = request.getParameter("state");
@@ -23,18 +23,18 @@
 	//Make A JSON Object
 	JSONObject obj = new JSONObject();
 	obj.put("Table_name","Hospital");
-	obj.put("hid",hid);
-	obj.put("Mobile",mobile);
-	obj.put("Hosp_Name" , name);
-	obj.put("Address_Line_1" , address);
+	obj.put("Hospital_ID",hid);
+	obj.put("Pincode",pin);
+	obj.put("Name" , name);
+	//obj.put("Address_Line_1" , address);
 	obj.put("City" , city);
 	obj.put("State" , state);
 	
 	//Send it
 	Execute_Statement e = new Execute_Statement();
-	e.Insert(obj,"Hospital");
+	e.Insert(obj,"Entity_Hospital");
 %>
 <h2>Hospital Details Entered Successfully</h2>
-<a href="../../index.jsp"><h3>Click Here To Go Back</h3></a>
+<a href="../../people/hospital.jsp"><h3>Click Here To Go Back</h3></a>
 </body>
 </html>

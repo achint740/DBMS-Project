@@ -18,13 +18,13 @@
 		String qualify = request.getParameter("qualify");
 		
 		JSONObject obj = new JSONObject();
-		obj.put("hosp_id",hid);
-		obj.put("doctor_id",d_id);
-		obj.put("name",d_name);
-		obj.put("Qualifications","qualify");
+		obj.put("Hospital_ID",hid);
+		obj.put("Doctor_ID",d_id);
+		obj.put("Name",d_name);
+		obj.put("Qualification",qualify);
 		
 		Execute_Statement e = new Execute_Statement();
-		e.Insert(obj,"Doctor");
+		e.Insert(obj,"Entity_Doctor");
 	%>
 
 </body>
