@@ -44,6 +44,8 @@
 		<input type="submit" value="Enter">
 	</form>
 	
+	<a href="teams.jsp"><h2>Team Portal</h2></a>
+	
 	<a href="../forms/add_team.jsp"><h2>Add A Team</h2></a>
 
 	

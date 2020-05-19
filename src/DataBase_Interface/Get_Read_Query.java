@@ -216,6 +216,15 @@ public class Get_Read_Query {
 			features[2] = "City";
 			features[3] = "Pincode";
 		}
+
+		else if(type.equals("Foreign_List")) {
+			query = " SELECT foreign_visit_info.aadhar_number,foreign_visit_info.date_visit,person.first_name,person.last_name,person.age,person.gender,person.address_line_1,person.city,person.state,person.pincode FROM foreign_visit_info INNER JOIN person ON foreign_visit_info.aadhar_number=person.aadhar_number WHERE foreign_visit_info.current_status='NOT ADMITTED' AND person.city=?;";
+			values = new String[1];
+			values[0] = (String) obj.get("city");
+			features = new String[10];
+		}
+		
+
 		return query;
 	}
 }

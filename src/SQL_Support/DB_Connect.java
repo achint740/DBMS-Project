@@ -15,7 +15,7 @@ public class DB_Connect {
 // testing purpose
 	public static void main(String[] args) {
 
-	 //  SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
+//	   SQL_Commands s = new SQL_Commands("root", "Dawra@740", "cms");
 		Execute_Statement e  = new Execute_Statement();
 		JSONObject obj = new JSONObject();
 		
