@@ -1,3 +1,4 @@
+<%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
 <%@page import="SQL_Support.SQL_Commands" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -30,8 +31,8 @@
 	obj.put("Status",status);
 	
 	//Send it
-	SQL_Commands cmd = new SQL_Commands("root","Dawra@740","cms");
-	cmd.Insert(obj);
+	Execute_Statement e = new Execute_Statement();
+	e.Insert(obj, "Patient");
 %>
 
 <h2>Patient Details Entered Successfully</h2>

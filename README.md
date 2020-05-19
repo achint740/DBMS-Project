@@ -47,4 +47,12 @@ MYSQL commands :
      Current_Status VARCHAR (30) ,
      CONSTRAINT Foreign_Visit_Info_PK PRIMARY KEY (Aadhar_Number)
      ) ;
+     
+     Create Table Team ( 
+        Team_ID  VARCHAR(5) ,
+        Head_Name  VARCHAR(20) ,
+        City VARCHAR(20),
+        State VARCHAR(20),
+        CONSTRAINT Team_PK PRIMARY KEY (Team_ID)
+     ) ;
 

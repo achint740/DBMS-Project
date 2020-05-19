@@ -39,7 +39,13 @@
 		<input type="submit" value="Enter"> 
 	</form>
 	
+	<h2>View All The Teams</h2>
+	<form action="../Displays/teams.jsp">
+		<input type="submit" value="Enter">
+	</form>
 	
+	<a href="../forms/add_team.jsp"><h2>Add A Team</h2></a>
+
 	
 </body>
 </html>
