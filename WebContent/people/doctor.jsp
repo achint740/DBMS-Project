@@ -24,7 +24,7 @@
 	<form action="../controller/update/patient_info.jsp">
 		<input type="text" name="doctorid" placeholder="Enter Your ID">
 		<input type="text" name="patientid" placeholder="Enter PID">
-		<input type="text" name="test_status" placeholder="Status">
+		<input type="text" name="status" placeholder="Status">
 		<input type="submit" value="Enter"> 
 	</form>
 	
