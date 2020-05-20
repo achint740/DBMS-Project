@@ -8,6 +8,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+	table{
+		margin-left : 30%;
+		margin-top: 10%;
+		border: 2px dashed black;
+	}
+
+	td{
+		padding-left: 20px;
+		padding-top: 20px;
+	}
+</style>
 </head>
 <body>
 	<%
@@ -23,13 +35,34 @@
 	%>
 		<table>
 		
+				<tr>
+					<th>First_Name</th>
+					<th>Last_Name</th>
+					<th>Aadhar_No</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>State</th>
+					<th>PinCode</th>
+					<th>Action</th>
+				</tr>
+		
 			<%
 				for(int x=0;x<mylist.size();x++){
 					JSONObject p = mylist.get(x);
+					//out.println(p);
 			%>
 				<tr>
-					<td><%="Name"%></td>
-					<td><%=p %></td>
+					<td><%=p.get("First_Name")%></td>
+					<td><%=p.get("Last_Name")%></td>
+					<td class="td_aadhar"><%=p.get("Aadhar_Number")%></td>
+					<td><%=p.get("Age")%></td>
+					<td><%=p.get("Gender")%></td>
+					<td><%=p.get("Address_Line_1")%></td>
+					<td><%=p.get("City")%></td>
+					<td><%=p.get("State")%></td>
+					<td><%=p.get("PinCode")%></td>
 					<td><button class="Plus">ADD</button></td>
 				</tr>
 			

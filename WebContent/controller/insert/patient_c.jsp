@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDate"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
 <%@page import="SQL_Support.SQL_Commands" %>
@@ -15,9 +16,9 @@
 	//Get all the parameters
 	String patient_id = request.getParameter("pid");
 	String hosp_id = request.getParameter("hid");
-	String date_admit = request.getParameter("date_admit");
-	String date_discharge = request.getParameter("date_discharge");
-	String status = request.getParameter("status");
+	String date_admit = java.time.LocalDate.now().toString();
+	String date_discharge = "";
+	String status = "Positive";
 	String aadhar = request.getParameter("aadhar");
 	
 	//Make A JSON Object
@@ -36,7 +37,6 @@
 %>
 
 <h2>Patient Details Entered Successfully</h2>
-<a href="../../index.jsp"><h3>Click here to Go Back</h3></a>
 
 </body>
 </html>

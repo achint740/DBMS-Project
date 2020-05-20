@@ -18,6 +18,12 @@
 	
 	<!-- <h2>Covid-19 Special Teams Details Form<a href="../forms/teams.jsp">Fill this form</a></h2> -->
 	
+	<h2>See the list of new patients</h2>
+	<form action="../Displays/hosp_new_list.jsp" method="POST">
+		<input name="hosp_id" type="text">
+		<input type="submit" value="Enter">
+	</form>
+	
 	<h2>Add Doctor<a href="../forms/doctor.jsp">Fill this form</a></h2>
 	
 	<a href="doctor.jsp"><h2>Doctor's Portal</h2></a>

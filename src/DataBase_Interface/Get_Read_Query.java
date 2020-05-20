@@ -270,23 +270,24 @@ public class Get_Read_Query {
 		      features[3] = "Patient";
 		      features[4] = "Doctor";
 		}else if(type.equals("Govt_Guarantine_to_Patient")) {
-			query = " Select * from person inner join Patient_Buffer on "
+			query = " Select person.Aadhar_Number,person.First_Name,person.Last_Name,Patient_Buffer.Hospital_ID from person inner join Patient_Buffer on "
 					+" person.aadhar_number = Patient_Buffer.aadhar_number "+
 					"where Patient_Buffer.Hospital_ID = ? ";
 			
 			values = new String[1];
 			values[0] = (String) obj.get("Hospital_ID");
 					
-			features = new String[9];
+			features = new String[4];
 			features[0]="Aadhar_Number";
 			features[1]="First_Name";
 			features[2]="Last_Name";
-			features[3]="Age";
-			features[4]="Gender";
-			features[5]="Address_Line_1";
-			features[6]="City";
-			features[7]="State";
-			features[8]="PinCode";
+			features[3]="Hospital_ID";
+//			features[3]="Age";
+//			features[4]="Gender";
+//			features[5]="Address_Line_1";
+//			features[6]="City";
+//			features[7]="State";
+//			features[8]="PinCode";
 		}
 		return query;
 	}
