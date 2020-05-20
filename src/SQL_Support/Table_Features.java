@@ -78,7 +78,6 @@ public class Table_Features {
 
 		}else if (Table_Name.equals("Govt_Quarantined")) {
 			parent_table = new Govt_Quarantined();
-
 		}else if (Table_Name.equals("Doctor")) {
 			parent_table = new Doctor();
 		}else if (Table_Name.equals("Govt_Quarantine_Buffer")) {
