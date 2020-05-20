@@ -5,11 +5,13 @@ import java.util.HashSet;
 import Tables.Contact_Details;
 import Tables.Doctor;
 import Tables.Foreign_Visit_Info;
+import Tables.Govt_Quarantine_Buffer;
 import Tables.Govt_Quarantined;
 import Tables.Home_Quarantined;
 import Tables.Hospital;
 import Tables.Parent_Table;
 import Tables.Patient;
+import Tables.Patient_Buffer;
 import Tables.Person;
 import Tables.Team_Hospital;
 import Tables.Teams;
@@ -43,10 +45,11 @@ public class Table_Features {
 			parent_table = new Home_Quarantined();
 		}else if (Table_Name.equals("Govt_Quarantined")) {
 			parent_table = new Govt_Quarantined();
+		}else if (Table_Name.equals("Govt_Quarantine_Buffer")) {
+			parent_table = new Govt_Quarantine_Buffer();
+		}else if (Table_Name.equals("Patient_Buffer")) {
+			parent_table = new Patient_Buffer();
 		}else if (Table_Name.equals("Doctor")) {
-			parent_table = new Doctor();
-		}
-		else if (Table_Name.equals("Doctor")) {
 			parent_table = new Doctor();
 		}
 		return parent_table.get_features();
@@ -78,6 +81,10 @@ public class Table_Features {
 
 		}else if (Table_Name.equals("Doctor")) {
 			parent_table = new Doctor();
+		}else if (Table_Name.equals("Govt_Quarantine_Buffer")) {
+			parent_table = new Govt_Quarantine_Buffer();
+		}else if (Table_Name.equals("Patient_Buffer")) {
+			parent_table = new Patient_Buffer();
 		}
 		return parent_table.get_primary_key();
 	}

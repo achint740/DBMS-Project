@@ -288,8 +288,6 @@ public class Get_Read_Query {
 			features[7]="State";
 			features[8]="PinCode";
 		}
-        
-
 		return query;
 	}
 }
