@@ -224,7 +224,7 @@ public class Get_Read_Query {
 			features[6]="City";
 			features[7]="State";
 			features[8]="PinCode";
-		}else if(type.equals("Govt_Guarantine_to_Hosptital")) {
+		}else if(type.equals("Govt_Guarantine_to_Hospital")) {
 			query = " Select * from person inner join Patient_Buffer on "
 					+" person.aadhar_number = Patient_Buffer.aadhar_number "+
 					"where person.city = (Select city from teams where team_id= ?)"+

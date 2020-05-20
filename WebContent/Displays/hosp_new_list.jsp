@@ -19,7 +19,7 @@
 		obj.put("Hospital_ID",hosp_id);
 	
 		Execute_Statement e = new Execute_Statement();
-		ArrayList<JSONObject> mylist = e.Read(obj, "Hospital_New_List");
+		ArrayList<JSONObject> mylist = e.Read(obj, "Govt_Guarantine_to_Patient");
 	%>
 
 	<table>
@@ -39,9 +39,9 @@
 		<%} %>
 	</table>
 	
-	<form action="../insert/controller/patient_c.jsp" method="POST">
+	<form action="../controller/insert/patient_c.jsp" method="POST" id="myform">
 		<input type="hidden" id="aadhar_no" name="aadhar">
-		<input type="hidden" id="doctor_id" name="pid">
+		<input type="hidden" id="doctor_id" name="did">
 		<input type="hidden" id="hosp_id" name="hid">
 	</form>
 	

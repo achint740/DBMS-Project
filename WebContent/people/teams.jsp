@@ -27,8 +27,14 @@
 	
 	<br>
 	
-	<h2>To View List</h2>
-	<form action="../Displays/teams_list.jsp" method="post">
+	<h2>To View List HomeQ->GovtQ</h2>
+	<form action="../Displays/homeq_govtq.jsp" method="post">
+		<input type="text" name="teamid" placeholder="Enter Team-ID"> 
+		<input type="submit" value="Click Here">
+	</form>
+	
+	<h2>To View List GovtQ->Hosp</h2>
+	<form action="../Displays/govtq_hosp.jsp" method="post">
 		<input type="text" name="teamid" placeholder="Enter Team-ID"> 
 		<input type="submit" value="Click Here">
 	</form>
