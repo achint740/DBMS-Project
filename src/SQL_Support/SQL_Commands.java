@@ -104,7 +104,7 @@ public class SQL_Commands {
 				System.out.println("Delele Not Possible !");
 				throw new Exception("not having primary key ");
 			}
-
+			System.out.println(query);
 			ps = connection.prepareStatement(query);
 			for (int i = 0; i < Values_to_prepare_statement.size(); i++) {
 				ps.setString(i + 1, Values_to_prepare_statement.get(i));

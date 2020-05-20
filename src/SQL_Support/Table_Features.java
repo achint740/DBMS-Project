@@ -5,6 +5,7 @@ import java.util.HashSet;
 import Tables.Contact_Details;
 import Tables.Doctor;
 import Tables.Foreign_Visit_Info;
+import Tables.Govt_Quarantine_Buffer;
 import Tables.Govt_Quarantined;
 import Tables.Home_Quarantined;
 import Tables.Hospital;
@@ -49,7 +50,9 @@ public class Table_Features {
 		else if (Table_Name.equals("Doctor")) {
 			parent_table = new Doctor();
 		}
-		return parent_table.get_features();
+		else if (Table_Name.equals("Govt_Quarantine_Buffer")) {
+			parent_table = new Govt_Quarantine_Buffer();
+		}		return parent_table.get_features();
 	}
 
 	public HashSet<String> Primary_Key(String Table_Name) {
@@ -75,10 +78,11 @@ public class Table_Features {
 
 		}else if (Table_Name.equals("Govt_Quarantined")) {
 			parent_table = new Govt_Quarantined();
-
 		}else if (Table_Name.equals("Doctor")) {
 			parent_table = new Doctor();
-		}
+		}else if (Table_Name.equals("Govt_Quarantine_Buffer")) {
+			parent_table = new Govt_Quarantine_Buffer();
+		}	
 		return parent_table.get_primary_key();
 	}
 }

@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class Patient_Buffer extends Parent_Table{
 	final public String [] Features = {
 			"Aadhar_Number",
-			"Hospital"
+			"Hospital_ID"
 	};
     final public HashSet<String> Primary_Key ;
 	public Patient_Buffer() {

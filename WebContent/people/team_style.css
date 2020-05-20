@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+
+table{
+	margin-left: 30%;
+}
+
+td{
+	padding-left : 20px;
+	padding-top: 30px;
+	text-decoration: underline;
+	color: green;
+}
