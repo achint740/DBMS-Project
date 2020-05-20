@@ -207,8 +207,8 @@ public class Get_Read_Query {
 		}else if(type.equals("Home_to_Govt_Guarantine")) {
 			query = " Select * from person inner join Govt_Quarantine_Buffer on "
 					+" person.aadhar_number = Govt_Quarantine_Buffer.aadhar_number "+
-					"where city = (Select city from team where team_id= ?)"+
-					"and state=  (Select state from team where team_id= ?);";
+					"where city = (Select city from teams where team_id= ?)"+
+					"and state=  (Select state from teams where team_id= ?);";
 			
 			values = new String[2];
 			values[0] = (String) obj.get("Team_ID");
@@ -256,7 +256,7 @@ public class Get_Read_Query {
 
 			query ="SELECT  Hospital.Name as Name, City, State,Count(Patient_ID)  as Patient, Count(Distinct Doctor_ID)  as Doctor from Hospital INNER JOIN (Select Doctor.Hospital_ID , Doctor.Doctor_ID , Patient.Patient_ID from Doctor INNER JOIN Patient on Doctor.Doctor_ID = Patient.Doctor_ID)as der On der.Hospital_ID = Hospital.Hospital_id "+ 
 			"  where Hospital.city = (Select city from teams where team_id= ?) "+
-					" and Hospital.state =(Select state from team where team_id= ?) "+
+					" and Hospital.state =(Select state from teams where team_id= ?) "+
 			"Group BY Hospital.Hospital_ID ";
 			values = new String[2];
 			values[0] = (String) obj.get("Team_ID");
@@ -288,8 +288,6 @@ public class Get_Read_Query {
 			features[7]="State";
 			features[8]="PinCode";
 		}
-        
-
 		return query;
 	}
 }
