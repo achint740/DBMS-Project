@@ -12,12 +12,6 @@
 	
 	<h2>Hospital Details Form<a href="../forms/hospital.jsp">Fill this form</a></h2>
 	
-	<!-- <h2>Patient Details Form<a href="../forms/patient.jsp">Click Here</a></h2> -->	
-	
-	<!-- <h2>Quarantine Details Form<a href="../forms/quarantine.jsp">Fill this form</a></h2> -->
-	
-	<!-- <h2>Covid-19 Special Teams Details Form<a href="../forms/teams.jsp">Fill this form</a></h2> -->
-	
 	<h2>See the list of new patients</h2>
 	<form action="../Displays/hosp_new_list.jsp" method="POST">
 		<input name="hosp_id" type="text">
@@ -25,8 +19,6 @@
 	</form>
 	
 	<h2>Add Doctor<a href="../forms/doctor.jsp">Fill this form</a></h2>
-	
-	<a href="doctor.jsp"><h2>Doctor's Portal</h2></a>
 	
 	<h2>To see the total cases admitted in your Hospital</h2>
 	

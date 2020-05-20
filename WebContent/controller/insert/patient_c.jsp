@@ -18,7 +18,6 @@
 	String doctor_id = request.getParameter("did");
 	String hosp_id = request.getParameter("hid");
 	String date_admit = java.time.LocalDate.now().toString();
-	String date_discharge = "";
 	String status = "positive";
 	String aadhar = request.getParameter("aadhar");
 	
@@ -32,7 +31,6 @@
 	obj.put("Patient_ID", patient_id);
 	obj.put("Hospital_ID" , hosp_id);
 	//obj.put("Date_Admit" , date_admit);
-	//obj.put("Date_Discharge" , date_discharge);
 	//obj.put("Status",status);
 	
 	//Send it
