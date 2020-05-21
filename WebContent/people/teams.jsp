@@ -10,38 +10,62 @@
 <link rel="stylesheet" type="text/css" href="team_style.css">
 </head>
 <body>
-
-	<center><h1>Teams Portal</h1></center>
 	
-	<a href="../forms/person.jsp"><h2>Add a Person who hasn't signed up yet</h2></a>
+	<nav class="navbar navbar-dark bg-dark">
+  		<center><h1>Teams Portal</h1></center>
+	</nav>
 	
-	<br>
-
-	<h2>View Hospitals Under Your Team</h2>
-	<form action="../Displays/team_hosp.jsp" method="post">
-		<div class="input-group mb-3" id="myinp">
-		  <div class="input-group-prepend">
+	<div class="card-group">
+	
+		<div class="card" >
+		  <img src="../Images/team1.jpeg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">Sign Up A Person</h5>
+		    <p class="card-text">Click Here to add a person who hasn't registered yet</p>
+		    <a href="../forms/person.jsp" class="btn btn-primary">Register</a>
 		  </div>
-		  <input type="text" name="teamid" class="form-control" placeholder="Enter Team-ID">
-		  <input type="submit" value="Enter">
 		</div>
-	</form>
-	
-	<br>
-	
-	<h2>To View List Home Quarantine -> GovtQuarantine</h2>
-	<form action="../Displays/homeq_govtq.jsp" method="post">
-		<input type="text" name="teamid" placeholder="Enter Team-ID"> 
-		<input type="submit" value="Click Here">
-	</form>
-	
-	<h2>To View List GovtQ->Hosp</h2>
-	<form action="../Displays/govtq_hosp.jsp" method="post">
-		<input type="text" name="teamid" placeholder="Enter Team-ID"> 
-		<input type="submit" value="Click Here">
-	</form>
-	
-
+		
+		<div class="card" >
+		  <img src="../Images/team1.jpeg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">View Hospitals</h5>
+		    <form action="../Displays/team_hosp.jsp" method="post" class="form-inline">
+			  <div class="form-group mx-sm-3 mb-2">
+			    <input type="text" class="form-control" name="teamid" placeholder="TeamID">
+			  </div>
+			  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+			</form>
+		  </div>
+		</div>
+		
+		<div class="card">
+		  <img src="../Images/team1.jpeg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">Home Quarantine</h5>
+		    <form action="../Displays/homeq_govtq.jsp" method="post" class="form-inline">
+			  <div class="form-group mx-sm-3 mb-2">
+			    <input type="text" class="form-control" name="teamid" placeholder="TeamID">
+			  </div>
+			  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+			</form>
+		  </div>
+		</div>
+		
+		<div class="card h-600">
+		  <img src="../Images/team1.jpeg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">Govt. Quarantine</h5>
+		    <form action="../Displays/govtq_hosp.jsp" method="post" class="form-inline">
+			  <div class="form-group mx-sm-3 mb-2">
+			    <input type="text" class="form-control" name="teamid" placeholder="TeamID">
+			  </div>
+			  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+			</form>
+		  </div>
+		</div>
+		
+	</div>
  
 </body>
 </html>

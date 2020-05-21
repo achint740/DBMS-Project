@@ -1,11 +1,13 @@
 @charset "ISO-8859-1";
 
+@charset "ISO-8859-1";
+
 h1{
 	font-size: 50px;
 	font-family: 'Pacifico', cursive;
 	text-decoration: underline;
 	color: white;
-	margin-left: 800px;
+	margin-left: 700px;
 }
 
 
@@ -19,4 +21,10 @@ h1{
 
 .btn{
 	margin-left: 20px;
+}
+
+img{
+	width : 100px;
+	height: 350px;
+	margin-top: 20px;
 }

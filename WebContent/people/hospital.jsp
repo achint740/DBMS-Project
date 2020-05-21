@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,5 +49,119 @@
 		<input type="text" placeholder="Enter HID" name="hid">
 		<input type="submit" value="Enter">
 	</form>
+</body>
+</html>
+
+-->
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hospitals</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="hosp_style.css">
+</head>
+<body>
+	
+	<nav class="navbar navbar-dark bg-dark">
+  		<h1>Hospital Admin's Portal</h1>
+	</nav>
+	
+	<div class="card-group">
+		
+		<div class="card" >
+		  <img src="../Images/pnew.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">See List Of New Patients</h5>
+		    <form action="../Displays/hosp_new_list.jsp" method="post" class="form-inline">
+			  <div class="form-group mx-sm-3 mb-2">
+			    <input type="text" class="form-control"name="hosp_id" placeholder="Hospital-ID">
+			  </div>
+			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
+			</form>
+		  </div>
+		</div>
+		
+		<div class="card h-600">
+		  <img src="../Images/plist.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">See Complete List Of Patients</h5>
+		    <form action="../Displays/govtq_hosp.jsp" method="post" class="form-inline">
+			  <div class="form-group mx-sm-3 mb-2">
+			    <input type="text" class="form-control" name="hid" placeholder="Hospital-ID">
+			  </div>
+			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
+			</form>
+		  </div>
+		</div>
+		
+		<div class="card">
+		  <img src="../Images/pinfo.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">See A Patient's Info</h5>
+		    <form action="../Displays/patient_list.jsp" method="post" class="form-inline">
+			  <div class="form-group mx-sm-3 mb-2">
+			    <input type="text" class="form-control" name="pid" placeholder="Patient-ID">
+			  </div>
+			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
+			</form>
+		  </div>
+		</div>
+		
+	</div>
+	
+	<div class="card-group">
+	
+		<div class="card">
+		  <img src="../Images/listd.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">List Of Doctors</h5>
+		    <form action="../Displays/Doctor_Info.jsp" method="post" class="form-inline">
+			  <div class="form-group mx-sm-3 mb-2">
+			    <input type="text" class="form-control" name="hid" placeholder="Hospital-ID">
+			  </div>
+			  <button type="submit" class="btn btn-primary mb-2">View</button>
+			</form>
+		  </div>
+		</div>
+		
+		<div class="card" >
+		  <img src="../Images/doctor1.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">Add A Doctor</h5>
+		    <a href="../forms/doctor.jsp" class="btn btn-primary">ADD</a>
+		  </div>
+		</div>
+		
+		<div class="card">
+		  <img src="../Images/cases.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h4 class="card-title">Cases In Your Hospital</h4>
+		    <form action="../Displays/hosp_cases.jsp" method="POST">
+			  <div class="form-row align-items-center">
+			    <div class="col-auto">
+			        <input type="text" class="form-control" name="hid" placeholder="Hospital-ID">
+			    </div>
+			    <div class="col-auto">
+				    <select name="type" id="cases_type">
+				   		<option>Total_Hosp_Cases</option>
+				   		<option>Active_Hosp_Cases</option>
+				   		<option>Treated_Hosp_Cases</option>
+				   	</select>
+			   	</div>
+			    <div class="col-auto">
+			      <button type="submit" class="btn btn-primary mb-2">Confirm</button>
+			    </div>
+			  </div>
+			</form>
+		  </div>
+		</div>
+		
+	</div>
+ 
 </body>
 </html>
