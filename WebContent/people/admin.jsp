@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,3 +48,55 @@
 	
 </body>
 </html>
+
+ -->
+ 
+ 
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Govt.Admin</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="admin_style.css">
+</head>
+<body>
+	
+	<nav class="navbar navbar-dark bg-dark">
+  		<h1>Govt. Of India</h1>
+	</nav>
+	
+	<div class="card-group">
+	
+		<div class="card" >
+		  <img src="../Images/aero.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h4 class="card-title">Foreign Visitors</h4>
+			<button type="submit" class="btn btn-primary mb-2"><a href="../forms/foreign.jsp"><h5>Fill This Form</h5></a></button>
+		  </div>
+		</div>
+		
+		<div class="card" >
+		  <img src="../Images/cases1.jpeg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h4 class="card-title">Cases & Analysis</h4>
+		    <button type="submit" class="btn btn-primary mb-2"><a href="admin_cases.jsp"><h5>Check</h5></a></button>
+		  </div>
+		</div>
+		
+		<div class="card" >
+		  <img src="../Images/team1.jpeg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h4 class="card-title">Hospitals & Teams</h4>
+		    <button type="submit" class="btn btn-primary mb-2"><a href="admin_teams.jsp"><h5>Check</h5></a></button>
+		  </div>
+		</div>
+		
+	</div>
+ 
+</body>
+</html>
+ 
