@@ -20,7 +20,7 @@
 		<div class="card" >
 		  <img src="../Images/hosp.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
-		    <h5 class="card-title">List Of Hospitals in a State</h5>
+		    <h4 class="card-title">List Of Hospitals in a State</h4>
 		    <form action="../Displays/hosp_state.jsp" method="post" class="form-inline">
 		      <div class="form-group mx-sm-3 mb-2">
 			    <input type="text" class="form-control" name="state" placeholder="Enter State">
@@ -33,7 +33,7 @@
 		<div class="card h-600">
 		  <img src="../Images/team1.jpeg" class="card-img-top" alt="...">
 		  <div class="card-body">
-		    <h5 class="card-title">List Of Teams</h5>
+		    <h4 class="card-title">List Of Teams</h4>
 		    <form action="../Displays/teams.jsp" method="post" class="form-inline">
 			  <button type="submit" class="btn btn-primary mb-2"><h5>View</h5></button>
 			</form>
@@ -43,7 +43,7 @@
 		<div class="card">
 		  <img src="../Images/team.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
-		    <h5 class="card-title">Add A Team</h5>
+		    <h4 class="card-title">Add A Team</h4>
 			<button type="submit" class="btn btn-primary mb-2"><a href="../forms/add_team.jsp"><h5>ADD</h5></a></button>
 		  </div>
 		</div>
