@@ -4,4 +4,9 @@ Corona Management System is capable of managing each and every data regarding Co
 ## Technology used are :
 Front End : HTML , CSS , JAVASCRIPT , Java Server Pages (JSP) .
 Back End : Database(MySQL). IDE used : Eclipse.
+<img src="Images/MainScreen.png"  height="500"  widh="800">
+<img src="Images/Hospital.png"  height="500"  widh="800">
 <img src="Images/Doctor.png"  height="500"  widh="800">
+<img src="Images/Teams.png"  height="500"  widh="800">
+<img src="Images/citizen.png"  height="500"  widh="800">
+<img src="Images/govt.png"  height="500"  widh="800">
