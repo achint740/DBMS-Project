@@ -7,7 +7,7 @@ Back End : Database(MySQL). IDE used : Eclipse.
 
 ### Home Page :
 
-<img src="Images/MainScreen.png"  height="500"  widh="800" border="20px solid black">
+<img src="Images/MainScreen.png"  height="500"  widh="800" border="2px solid black">
  
 ### HOSPITAL's PORTAL :
 
