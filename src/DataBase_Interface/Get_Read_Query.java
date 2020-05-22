@@ -122,7 +122,7 @@ public class Get_Read_Query {
 
 
 			values = new String[1];
-			System.out.println(obj);
+			System.out.println(obj +" "+values);
 			values[0] = (String) obj.get("Hospital_ID");
 			
 			features = new String[8];

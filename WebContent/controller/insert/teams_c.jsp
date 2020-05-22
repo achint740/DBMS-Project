@@ -24,7 +24,7 @@
 	obj.put("HID" , hid);
 	
 	//Send it
-	SQL_Commands cmd = new SQL_Commands("root","Dawra@740","cms");
+	SQL_Commands cmd = new SQL_Commands("root","Jains1008@","cms");
 	cmd.Insert(obj);	
 %>
 

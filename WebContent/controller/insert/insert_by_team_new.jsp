@@ -21,7 +21,7 @@
 		//obj.put("Hospital_ID",hosp_id);
 		obj.put("Aadhar_Number",aadhar);
 		
-		SQL_Commands s = new SQL_Commands("root", "Dawra@740", "cms");
+		SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
 		s.Delete(obj);
 		
 		JSONObject obj1 = new JSONObject();

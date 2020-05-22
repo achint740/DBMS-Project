@@ -23,7 +23,7 @@
 		d.put("Aadhar_Number",aadhar);
 		d.put("Table_Name","Govt_Quarantine_Buffer");
 		
-		SQL_Commands s = new SQL_Commands("root", "Dawra@740","cms");
+		SQL_Commands s = new SQL_Commands("root", "Jains1008@","cms");
 		s.Delete(d);
 		
 	%>
