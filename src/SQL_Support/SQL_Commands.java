@@ -206,6 +206,27 @@ public class SQL_Commands {
 //			System.out.println("Error in SQL_Commands Update operation");
 //		}
 	}
+	
+	public JSONObject Verify(JSONObject obj) throws SQLException {
+		   PreparedStatement ps = null;
+		   ResultSet rs = null;
+		   String querry = "Select category from users where user_id=? AND password=?;";
+		   ps = connection.prepareStatement(querry);
+		   ps.setString(1, (String) obj.get("user_id"));
+		   ps.setString(2, (String) obj.get("password"));
+		   System.out.println(ps);
+		   rs = ps.executeQuery();
+		   System.out.println("Result is : " + rs);
+		   while(rs.next()) {
+			   JSONObject ans = new JSONObject();
+
+			   String c = rs.getString("category");
+			   ans.put("flag", "true");
+			   ans.put("category",c);
+			   return ans;
+		   }
+		   return null;
+	}
 
 	
 }

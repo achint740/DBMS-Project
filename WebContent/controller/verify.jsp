@@ -1,3 +1,5 @@
+<%@page import="SQL_Support.SQL_Commands"%>
+<%@page import="org.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,32 +9,39 @@
 <title>Login Controller*</title>
 </head>
 <body>
-	<h1>Validating your Data</h1>
 	<%
 		//Fetch data from html
-		String user = request.getParameter("user_id");
-		String pwd = request.getParameter("password");
+		String user = request.getParameter("userid");
+		String pwd = request.getParameter("pwd");
 		//out.println("Here");
 		
 		//Create JSON Object
-		//JSONObject obj = new JSONObject();
-		//obj.put("User_ID",user);
-		//obj.put("Password",pwd);
+		JSONObject obj = new JSONObject();
+		obj.put("user_id",user);
+		obj.put("password",pwd);
 		
 		//Send It
-		
-		
+		SQL_Commands s = new SQL_Commands("root", "Dawra@740", "cms");
+		JSONObject ans1 = s.Verify(obj);
+		//out.println(ans1);
+		//String people_type //= //ans.get("category");
 		//Receive Status
-		if(true){
+		boolean ans = true;
+		if(ans1!=null){
+		String url = "../people/";
+		String c = ans1.getString("category");
+		url+=c;
+		url+="s.jsp";
 	%>
 		<h2>Validated!</h2>
-		<a href="../mainpage.jsp">Move to Main Page</a>
+		
+		<a href="(String)url">Move to Main Page</a>
 	<%
 		}
 		
 		else{
 	%>
-		<a href="../login.jsp"><h2>Try AGAIN</h2></a>
+		<a href="../forms/Login.jsp"><h2>Try AGAIN</h2></a>
 	<%
 		}
 	%>
