@@ -1,3 +1,4 @@
+<%@page import="DataBase_Interface.Database_Auth"%>
 <%@page import="org.json.JSONObject"%>
 <%@page import="SQL_Support.SQL_Commands" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -24,7 +25,7 @@
 	obj.put("HID" , hid);
 	
 	//Send it
-	SQL_Commands cmd = new SQL_Commands("root","Jains1008@","cms");
+	SQL_Commands cmd = new SQL_Commands("root", new Database_Auth().password,"cms");
 	cmd.Insert(obj);	
 %>
 
