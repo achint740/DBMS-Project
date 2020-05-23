@@ -1,3 +1,4 @@
+<%@page import="DataBase_Interface.Database_Auth"%>
 <%@page import="SQL_Support.SQL_Commands"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
@@ -21,7 +22,7 @@
 		//obj.put("Hospital_ID",hosp_id);
 		obj.put("Aadhar_Number",aadhar);
 		
-		SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
+		SQL_Commands s = new SQL_Commands("root", new Database_Auth().password, "cms");
 		s.Delete(obj);
 		
 		JSONObject obj1 = new JSONObject();

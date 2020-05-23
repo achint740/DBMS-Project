@@ -1,3 +1,4 @@
+<%@page import="DataBase_Interface.Database_Auth"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
@@ -38,7 +39,7 @@
 	e.Insert(obj, "Entity_Patient");
 	
 	//Remove this from patient_buffer
-	SQL_Commands s = new SQL_Commands("root", "Jains1008@", "cms");
+	SQL_Commands s = new SQL_Commands("root", new Database_Auth().password, "cms");
 	JSONObject obj1 = new JSONObject();
 	obj1.put("Aadhar_Number",aadhar);
 	obj1.put("Table_Name","Patient_Buffer");

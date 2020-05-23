@@ -1,3 +1,4 @@
+<%@page import="DataBase_Interface.Database_Auth"%>
 <%@page import="SQL_Support.SQL_Commands"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
@@ -23,7 +24,7 @@
 		d.put("Aadhar_Number",aadhar);
 		d.put("Table_Name","Govt_Quarantine_Buffer");
 		
-		SQL_Commands s = new SQL_Commands("root", "Jains1008@","cms");
+		SQL_Commands s = new SQL_Commands("root", new Database_Auth().password,"cms");
 		s.Delete(d);
 		
 	%>

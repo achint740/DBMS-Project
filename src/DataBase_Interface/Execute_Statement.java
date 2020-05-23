@@ -12,7 +12,7 @@ public class Execute_Statement {
 
 	public Execute_Statement() {
 		// TODO Auto-generated constructor stub
-		sql = new SQL_Commands("root", "Dawra@740", "cms");
+		sql = new SQL_Commands("root", new Database_Auth().password, "cms");
 	}
 
 	public void Insert(JSONObject obj, String view) {

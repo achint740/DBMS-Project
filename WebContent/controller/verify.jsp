@@ -1,3 +1,4 @@
+<%@page import="DataBase_Interface.Database_Auth"%>
 <%@page import="SQL_Support.SQL_Commands"%>
 <%@page import="org.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -15,16 +16,17 @@
 		String pwd = request.getParameter("pwd");
 		//out.println("Here");
 		
+		
 		//Create JSON Object
 		JSONObject obj = new JSONObject();
 		obj.put("user_id",user);
 		obj.put("password",pwd);
 		
 		//Send It
-		SQL_Commands s = new SQL_Commands("root", "Dawra@740", "cms");
+		SQL_Commands s = new SQL_Commands("root", new Database_Auth().password, "cms");
 		JSONObject ans1 = s.Verify(obj);
-		//out.println(ans1);
-		//String people_type //= //ans.get("category");
+		out.println( ans1);
+
 		//Receive Status
 		boolean ans = true;
 		if(ans1!=null){
