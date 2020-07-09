@@ -95,7 +95,6 @@ background-color: rgb(157, 227, 198);
 		}
 	%>
 	
-</body>
-
+	</body>
 </html>
 

@@ -31,9 +31,9 @@
 	
 	<a href="people/citizen.jsp"><img alt="" src="Images/indian.jpeg"></a>
 	
-	<a href="forms/Login.jsp"><img alt="" src="Images/hospitalgreen.jpg"></a>
+	<a href="Login.jsp"><img alt="" src="Images/hospitalgreen.jpg"></a>
 	
-	<a href="forms/Login.jsp"><img alt="" src="Images/admin.jpg"></a>
+	<a href="Login.jsp"><img alt="" src="Images/admin.jpg"></a>
 	
 	<a href="forms/Login.jsp"><img alt="" src="Images/team.jpg"></a>
 	
