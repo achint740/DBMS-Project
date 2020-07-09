@@ -80,7 +80,7 @@
 
 <div class="container">
   <h2>login</h2>
-  <form method="post" action="SQL_Support.LoginServlet">
+  <form method="post" action="LoginServlet">
     <input type="text" class="email" placeholder="User-ID" name="userid">
     <br/>
     <input type="password" class="pwd" placeholder="password" name="pwd">

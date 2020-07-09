@@ -1,4 +1,4 @@
-package SQL_Support;
+package login_session;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,17 +13,36 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-@SuppressWarnings("serial")
-public class LoginServlet extends HttpServlet{
+import SQL_Support.SQL_Commands;
 
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-		
-	protected void doPost(HttpServletRequest req,HttpServletResponse res) throws ServletException, IOException {
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public LoginServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}*/
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//		doGet(request, response);
 		System.out.println("Request Received");
-			
+		final long serialVersionUID = 1L;
+		System.out.println(serialVersionUID);
 		String user = req.getParameter("userid");
 		String pwd = req.getParameter("pwd");
 		
@@ -48,13 +67,14 @@ public class LoginServlet extends HttpServlet{
 			res.sendRedirect("LoginSuccess.jsp");
 		}
 		else {
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Login.html");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Login.jsp");
 			System.out.println("Login Failure");
 			PrintWriter out= res.getWriter();
 			out.println("<font color=red>Either user name or password is wrong.</font>");
 			rd.include(req, res);
 		}
-			
+		
+		
 	}
 
 }
