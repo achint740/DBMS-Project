@@ -64,9 +64,25 @@
 <link rel="stylesheet" type="text/css" href="admin_style.css">
 </head>
 <body>
+
+<% 
+String userName = null;
+Cookie[] cookies = request.getCookies();
+if(cookies !=null){
+	for(Cookie cookie : cookies){
+		if(cookie.getName().equals("user")) 
+			userName = cookie.getValue();
+		//out.println("Value : " + cookie.getValue());
+	}
+}
+
+if(userName == null) 
+	userName = "ADMIN_NULL";
+	//response.sendRedirect("Login.jsp");
+%>
 	
 	<nav class="navbar navbar-dark bg-dark">
-  		<h1>Govt. Of India</h1>
+  		<h1>Govt. Of India [ <%=userName %> ]</h1>
 	</nav>
 	
 	<div class="card-group">

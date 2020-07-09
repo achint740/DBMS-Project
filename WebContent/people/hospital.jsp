@@ -66,9 +66,25 @@
 <link rel="stylesheet" type="text/css" href="hosp_style.css">
 </head>
 <body>
+<% 
+String userName = null;
+Cookie[] cookies = request.getCookies();
+if(cookies !=null){
+	for(Cookie cookie : cookies){
+		if(cookie.getName().equals("user")) 
+			userName = cookie.getValue();
+		//out.println("Value : " + cookie.getValue());
+	}
+}
+
+if(userName == null) 
+	userName = "ADMIN_NULL";
+	//response.sendRedirect("Login.jsp");
+%>
 	
 	<nav class="navbar navbar-dark bg-dark">
   		<h1>Hospital Admin's Portal</h1>
+  		<h2><%=userName %></h2>
 	</nav>
 	
 	<div class="card-group">

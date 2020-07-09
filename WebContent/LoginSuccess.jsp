@@ -13,10 +13,12 @@ Cookie[] cookies = request.getCookies();
 if(cookies !=null){
 	for(Cookie cookie : cookies){
 		if(cookie.getName().equals("user")) 
-				userName = cookie.getValue();
+			userName = cookie.getValue();
+		out.println("Value : " + cookie.getValue());
 	}
 }
-if(userName == null)
+
+if(userName == null) 
 	response.sendRedirect("Login.jsp");
 %>
 <h3>Hi <%=userName %>, Login successful.</h3>

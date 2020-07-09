@@ -10,9 +10,25 @@
 <link rel="stylesheet" type="text/css" href="team_style.css">
 </head>
 <body>
+
+<% 
+String userName = null;
+Cookie[] cookies = request.getCookies();
+if(cookies !=null){
+	for(Cookie cookie : cookies){
+		if(cookie.getName().equals("user")) 
+			userName = cookie.getValue();
+		//out.println("Value : " + cookie.getValue());
+	}
+}
+
+if(userName == null) 
+	userName = "ADMIN_NULL";
+	//response.sendRedirect("Login.jsp");
+%>
 	
 	<nav class="navbar navbar-dark bg-dark">
-  		<center><h1>Teams Portal</h1></center>
+  		<h1>Teams Portal [ <%=userName %> ]</h1>
 	</nav>
 	
 	<div class="card-group">

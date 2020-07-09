@@ -1,13 +1,11 @@
 @charset "ISO-8859-1";
 
-@charset "ISO-8859-1";
-
 h1{
 	font-size: 50px;
 	font-family: 'Pacifico', cursive;
 	text-decoration: underline;
 	color: white;
-	margin-left: 700px;
+	margin-left: 650px;
 }
 
 
@@ -27,4 +25,9 @@ img{
 	width : 80px;
 	height: 350px;
 	margin-top: 20px;
+}
+
+h2{
+	float: right;
+	color: white;
 }

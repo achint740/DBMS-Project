@@ -1,4 +1,4 @@
-package login_session;
+package loginServer;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,10 @@ import org.json.JSONObject;
 
 import SQL_Support.SQL_Commands;
 
+/**
+ * Servlet implementation class LoginServlet
+ */
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,23 +34,26 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}*/
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//		doGet(request, response);
-		System.out.println("Request Received");
-		final long serialVersionUID = 1L;
-		System.out.println(serialVersionUID);
-		String user = req.getParameter("userid");
-		String pwd = req.getParameter("pwd");
 		
+		System.out.println("Request Received!");
+		
+		//Fetch data from html
+		String user = request.getParameter("userid");
+		String pwd = request.getParameter("pwd");
+		//out.println("Here");
+				
+		//Create JSON Object
 		JSONObject obj = new JSONObject();
 		obj.put("user_id",user);
 		obj.put("password",pwd);
@@ -53,25 +61,36 @@ public class LoginServlet extends HttpServlet {
 		SQL_Commands s = new SQL_Commands("root", "Dawra@740", "cms");
 		JSONObject ans1 = null;
 		try {
-			ans1 = s.Verify(obj);
+		  ans1 = s.Verify(obj);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		if(ans1!=null) {
-			System.out.println("Creating New Cookie");
+			System.out.println("User Verfied");
+			String c = ans1.getString("category");
 			Cookie loginCookie = new Cookie("user",user);
+			//setting cookie to expiry in 30 mins
 			loginCookie.setMaxAge(30*60);
-			res.addCookie(loginCookie);
-			res.sendRedirect("LoginSuccess.jsp");
+			response.addCookie(loginCookie);
+			if(c.matches("team"))
+				response.sendRedirect("people/teams.jsp");
+			else if(c.matches("doctor"))
+				response.sendRedirect("people/doctor.jsp");
+			else if(c.matches("hospital"))
+				response.sendRedirect("people/hospital.jsp");
+			else if(c.matches("government"))
+				response.sendRedirect("people/admin.jsp");
+			else 
+				response.sendRedirect("LoginSuccess.jsp");
 		}
 		else {
+			System.out.println("User Not Verified!Error");
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Login.jsp");
-			System.out.println("Login Failure");
-			PrintWriter out= res.getWriter();
+			PrintWriter out= response.getWriter();
 			out.println("<font color=red>Either user name or password is wrong.</font>");
-			rd.include(req, res);
+			rd.include(request, response);
 		}
 		
 		
