@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+
+body{
+	background-image: url('../Images/bluebg.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#Table{
+	position : absolute;
+	left : 45%;
+	top : 40%;
+	height : 80px;
+	width : 60px;
+}
+
+
+#Table th{
+	padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color : white;
+}
+
+#Table tbody{
+    background-color: rgb(163, 6, 27);
+}
+
+
+#Table tbody tr:nth-child(odd){
+    background-color: rgb(231, 225, 198);
+}    
+#Table tbody tr:nth-child(even) td{
+    color:white;
+}
+
+#Table thead{
+    background-color: black;
+}
+/*
+#Table tr:nth-child(even){background-color: #f2f2f2;}
+*/
+#Table tbody tr:hover {background-color: #f9b331;}
+
+

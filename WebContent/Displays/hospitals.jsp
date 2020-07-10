@@ -8,6 +8,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	
@@ -24,7 +28,7 @@
 	    	Execute_Statement s = new Execute_Statement();
 	    	ArrayList<JSONObject> hosp_list =  s.Read(obj, "Details_Nearby_Hospital");
 		%>
-		<table>
+		<table id="Table" class="table table-hover border border-dark">
 				<thead>
 			<% 
 			for(JSONObject obj1 : hosp_list){
@@ -35,9 +39,10 @@
 					<th><%=key %></th>
 			<%
 				}
+				break;
 			}
 		    %>
-		    	</thead>
+		    	</thead><tbody>
 		    	<tr>
 		    <% 
 			for(JSONObject obj2 : hosp_list){
@@ -47,11 +52,9 @@
 					Object value = obj2.get(key);
 			%>
 					<td><%=value %></td>
-			<%
-				}
-			}
-		    %>
-		    	</tr>
-			</table>
+			<%}%>
+			</tr>
+			<%}%>
+			</tbody></table>
 </body>
 </html>

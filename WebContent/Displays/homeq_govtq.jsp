@@ -8,18 +8,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<style>
-	table{
-		margin-left : 30%;
-		margin-top: 10%;
-		border: 2px dashed black;
-	}
-
-	td{
-		padding-left: 20px;
-		padding-top: 20px;
-	}
-</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<%
@@ -47,9 +39,9 @@
 		ArrayList<JSONObject> mylist = e.Read(obj,"Home_to_Govt_Guarantine");
 		//out.println(mylist);
 	%>
-		<table>
+		<table id="Table" class="table table-hover border border-dark">
 		
-				<tr>
+				<thead>
 					<th>First_Name</th>
 					<th>Last_Name</th>
 					<th>Aadhar_No</th>
@@ -60,8 +52,8 @@
 					<th>State</th>
 					<th>PinCode</th>
 					<th>Action</th>
-				</tr>
-		
+				</thead>
+				<tbody>
 			<%
 				for(int x=0;x<mylist.size();x++){
 					JSONObject p = mylist.get(x);
@@ -81,7 +73,7 @@
 				</tr>
 			
 			<%} %>
-		
+		</tbody>
 		</table>
 		
 		<form method="post" action="../insert/insert_by_team.jsp" id="hidden_form">
