@@ -24,7 +24,6 @@
 		
 		Execute_Statement s = new Execute_Statement();
 		ArrayList<JSONObject> list = s.Read(obj1, "Hosp_State");
-		out.println(list);
 	%>
 	<table id="Table" class="table table-hover border border-dark">
 				<thead>

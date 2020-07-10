@@ -38,6 +38,14 @@
 	%>
 
 	<table id="Table" class="table table-hover border border-dark">
+				<thead>
+					<th>First_Name</th>
+					<th>Last_Name</th>
+					<th>Aadhar_No</th>
+					<th>Hospital_ID</th>
+					<th>Enter Doctor_ID</th>
+					<th>Action</th>
+				</thead>
 	<tbody>
 		<%
 			for(int x=0;x<mylist.size();x++){

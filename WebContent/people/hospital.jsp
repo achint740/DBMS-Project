@@ -106,7 +106,7 @@ if(userName == null)
 		  <img src="../Images/plist.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">See Complete List Of Patients</h5>
-		    <form action="../Displays/hosp_new_list.jsp" method="post" class="form-inline">
+		    <form action="../Displays/patient_list.jsp" method="post" class="form-inline">
 			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 			</form>
 		  </div>

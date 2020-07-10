@@ -29,14 +29,13 @@
 		userName = "ADMIN_NULL";
 		//response.sendRedirect("Login.jsp");
 
-			String tid = userName;
+		String tid = userName;
 	
 		JSONObject obj = new JSONObject();
 		obj.put("Team_ID",tid);
 		
 		Execute_Statement e = new Execute_Statement();
 		ArrayList<JSONObject> mylist = e.Read(obj,"Govt_Guarantine_to_Hospital");
-		
 	%>
 	
 		<table id="Table" class="table table-hover border border-dark">

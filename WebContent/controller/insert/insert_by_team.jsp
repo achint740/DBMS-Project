@@ -13,12 +13,13 @@
 <body>
 	<%
 		String aadhar = request.getParameter("aadhar_no");
+		out.println("Aadhar No. " + aadhar);
 		
 		JSONObject obj = new JSONObject();
 		obj.put("Aadhar_Number",aadhar);
 		
 		Execute_Statement e = new Execute_Statement();
-		//e.Insert(obj, "Entity_Govt_Quarantine");
+		e.Insert(obj,"Entity_Govt_Quarantine");
 		
 		JSONObject d = new JSONObject();
 		d.put("Aadhar_Number",aadhar);

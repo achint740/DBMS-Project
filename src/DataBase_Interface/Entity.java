@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 import org.json.JSONObject;
 
+import Entities.Entiity_Govt_Quarantine;
 import Entities.Entity_Doctor;
 import Entities.Entity_Foreign_Visit;
 import Entities.Entity_Home_Quarantine;
@@ -47,6 +48,9 @@ public class Entity {
 			Derieved_Tables = entity_obj.get_Tables();
 		}else if (View.equals("Entity_Teams")) {
 			Entity_Teams entity_obj = new Entity_Teams();
+			Derieved_Tables = entity_obj.get_Tables();
+		}else if (View.equals("Entity_Govt_Quarantine")) {
+			Entiity_Govt_Quarantine entity_obj = new Entiity_Govt_Quarantine();
 			Derieved_Tables = entity_obj.get_Tables();
 		}
 		return get_JSON(obj);

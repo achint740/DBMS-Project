@@ -18,7 +18,7 @@
 		out.println(aadhar + "  " + hosp_id);
 		
 		JSONObject obj = new JSONObject();
-		obj.put("Table_Name","Patient_Buffer");
+		obj.put("Table_Name","Govt_Quarantined");
 		//obj.put("Hospital_ID",hosp_id);
 		obj.put("Aadhar_Number",aadhar);
 		

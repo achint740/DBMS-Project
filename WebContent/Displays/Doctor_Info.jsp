@@ -34,6 +34,7 @@
 		
 		Execute_Statement e = new Execute_Statement();
 		ArrayList<JSONObject> list = e.Read(obj1,"Doctor_Info");
+		
 	%>
 	<table id="Table" class="table table-hover border border-dark">
 			<thead>

@@ -23,7 +23,7 @@
 		    <h5 class="card-title">View Patients</h5>
 		    <form action="../Displays/mypatient.jsp" method="post" class="form-inline">
 			  <div class="form-group mx-sm-3 mb-2">
-			    <input type="text" class="form-control" name="teamid" placeholder="Enter Doctor-ID">
+			    <input type="text" class="form-control" name="doctorid" placeholder="Enter Doctor-ID">
 			  </div>
 			  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 			</form>

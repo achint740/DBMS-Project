@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
 			response.addCookie(loginCookie);
 			if(c.matches("team"))
 				response.sendRedirect("people/teams.jsp");
-			else if(c.matches("doctor"))
+			else if(c.matches("Doctor"))
 				response.sendRedirect("people/doctor.jsp");
 			else if(c.matches("hospital"))
 				response.sendRedirect("people/hospital.jsp");

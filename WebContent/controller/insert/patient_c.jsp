@@ -15,7 +15,7 @@
 <h2>Welcome To Patient Data Controller</h2>
 <%
 	//Get all the parameters
-	String patient_id = "P0005";
+	String patient_id = "P0010";
 	String doctor_id = request.getParameter("did");
 	String hosp_id = request.getParameter("hid");
 	String date_admit = java.time.LocalDate.now().toString();
@@ -31,8 +31,8 @@
 	obj.put("Doctor_ID", doctor_id);
 	obj.put("Patient_ID", patient_id);
 	obj.put("Hospital_ID" , hosp_id);
-	//obj.put("Date_Admit" , date_admit);
-	//obj.put("Status",status);
+	obj.put("Date_Admit" , date_admit);
+	obj.put("Status",status);
 	
 	//Send it
 	Execute_Statement e = new Execute_Statement();

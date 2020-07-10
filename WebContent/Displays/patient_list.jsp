@@ -15,10 +15,22 @@
 </head>
 <body>
 	<%
-		String pid = request.getParameter("pid");
+	String userName = null;
+	Cookie[] cookies = request.getCookies();
+	if(cookies !=null){
+		for(Cookie cookie : cookies){
+			if(cookie.getName().equals("user")) 
+				userName = cookie.getValue();
+			//out.println("Value : " + cookie.getValue());
+		}
+	}
+
+	if(userName == null) 
+		userName = "ADMIN_NULL";
+		String hid = userName;
 	
 		JSONObject obj1 = new JSONObject();
-		obj1.put("Patient_ID",pid);
+		obj1.put("Hospital_ID",hid);
 	
 		Execute_Statement e = new Execute_Statement();
 		ArrayList<JSONObject> list = e.Read(obj1, "Patient_List");

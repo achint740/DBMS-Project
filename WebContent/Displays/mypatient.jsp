@@ -22,8 +22,9 @@
 		
 		Execute_Statement e = new Execute_Statement();
 		ArrayList<JSONObject> list = e.Read(obj1,"My_Patients");
-		//out.println(list);
+		
 	%>
+	
 	<table id="Table" class="table table-hover border border-dark">
 				<thead>
 			<% 
@@ -60,5 +61,9 @@
 		    %>
 		    </tbody>
 			</table>
+	
+	
+			
+		
 </body>
 </html>

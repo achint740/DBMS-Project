@@ -78,14 +78,14 @@ public class Get_Read_Query {
 			features[0] = "Total_Hosp_Cases";
 			
 		} else if(type.equals("Active_Hosp_Cases")) {
-			query = " SELECT COUNT(Patient.Patient_ID) AS Active_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Patient.Date_Discharge IS NOT NULL; ";
+			query = " SELECT COUNT(Patient.Patient_ID) AS Active_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Patient.Date_Discharge IS NULL; ";
 			values = new String[1];
 			values[0] = (String) obj.get("Hospital_ID") + "";
 			
 			features = new String[1];
 			features[0] = "Active_Hosp_Cases";
 		} else if(type.equals("Treated_Hosp_Cases")) {
-			query = " SELECT COUNT(Patient.Patient_ID) AS Treated_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Patient.Date_Discharge IS NULL; ";
+			query = " SELECT COUNT(Patient.Patient_ID) AS Treated_Hosp_Cases FROM Patient INNER JOIN Doctor ON Patient.Doctor_ID=Doctor.Doctor_ID WHERE Doctor.Hospital_ID=? AND Patient.Date_Discharge IS NOT NULL; ";
 			values = new String[1];
 			values[0] = (String) obj.get("Hospital_ID") + "";
 			
@@ -137,8 +137,8 @@ public class Get_Read_Query {
 		}
 		else if(type.equals("Doctor_Info")) {
 			query =" SELECT Doctor.NAME AS NAME,Doctor.DOCTOR_ID AS DOCTOR_ID ,Doctor.QUALIFICATION as QUALIFICATION, Count(Patient.patient_id) as TOTAL_PATIENTS, "+
-				"	 Count(CASE  when  Patient.date_discharge is not  NULL THEN 1 END) as ACTIVE_PATIENTS,"+
-				"	 Count(CASE  when  Patient.date_discharge is   NULL THEN 1 END) as RECOVERED_PATIENTS  "+
+				"	 Count(CASE  when  Patient.date_discharge is NULL THEN 1 END) as ACTIVE_PATIENTS,"+
+				"	 Count(CASE  when  Patient.date_discharge is not NULL THEN 1 END) as RECOVERED_PATIENTS  "+
 				"	    from Doctor INNER JOIN Patient  "+
 				"	      on Doctor.Doctor_ID = Patient.Doctor_ID "+
 				"	      where Doctor.Hospital_id  =  ? "+
@@ -176,7 +176,7 @@ public class Get_Read_Query {
 			features[4] = "Testing_Status";
 			features[5] = "Last_Name";			
 			features[6] = "Age";
-					}
+		}
 		else if(type.equals("State_Analysis")) {
 			query = " SELECT PERSON.STATE AS STATE_SELECTED,COUNT(PATIENT.PATIENT_ID) AS CNT FROM PATIENT INNER JOIN PERSON ON PATIENT.AADHAR_NUMBER = PERSON.AADHAR_NUMBER GROUP BY STATE; ";
 			values = new String[0];
@@ -225,8 +225,8 @@ public class Get_Read_Query {
 			features[7]="State";
 			features[8]="PinCode";
 		}else if(type.equals("Govt_Guarantine_to_Hospital")) {
-			query = " Select * from person inner join Patient_Buffer on "
-					+" person.aadhar_number = Patient_Buffer.aadhar_number "+
+			query = " Select * from person inner join Govt_Quarantined on "
+					+" person.aadhar_number = Govt_Quarantined.aadhar_number "+
 					"where person.city = (Select city from teams where team_id= ?)"+
 					" and person.state= (Select state from teams where team_id= ?) ; ";
 			
@@ -288,6 +288,17 @@ public class Get_Read_Query {
 //			features[6]="City";
 //			features[7]="State";
 //			features[8]="PinCode";
+		}else if (type.equals("Teams")) {
+			query = "Select * from teams group by state";
+			
+			values = new String[0];		
+
+			features =  new String[5];
+			features[0]= "Team_ID";
+			features[1]="Head_Name";
+			features[2]=	"City";
+			features[3]="State";
+			features[4]="Contact";
 		}
 		return query;
 	}

@@ -76,7 +76,7 @@
 		</tbody>
 		</table>
 		
-		<form method="post" action="../insert/insert_by_team.jsp" id="hidden_form">
+		<form method="post" action="../controller/insert/insert_by_team.jsp" id="hidden_form">
 			<input type="hidden" name="aadhar_no" id="myaadhar">
 		</form>
 		
