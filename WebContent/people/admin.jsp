@@ -82,7 +82,11 @@ if(userName == null)
 %>
 	
 	<nav class="navbar navbar-dark bg-dark">
-  		<h1>Govt. Of India [ <%=userName %> ]</h1>
+  		<h1>Govt. Of India</h1>
+  		<h2><%=userName %></h2>
+  		<form action="../LogoutServlet" method="post">
+			<input type="submit" value="Logout" >
+		</form>
 	</nav>
 	
 	<div class="card-group">
