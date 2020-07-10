@@ -47,9 +47,9 @@ if(userName == null)
 		  <div class="card-body">
 		    <h5 class="card-title">View Hospitals</h5>
 		    <form action="../Displays/team_hosp.jsp" method="post" class="form-inline">
-			  <div class="form-group mx-sm-3 mb-2">
+			 <!--   <div class="form-group mx-sm-3 mb-2">
 			    <input type="text" class="form-control" name="teamid" placeholder="TeamID">
-			  </div>
+			  </div>  -->
 			  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 			</form>
 		  </div>
@@ -60,9 +60,6 @@ if(userName == null)
 		  <div class="card-body">
 		    <h5 class="card-title">Home Quarantine</h5>
 		    <form action="../Displays/homeq_govtq.jsp" method="post" class="form-inline">
-			  <div class="form-group mx-sm-3 mb-2">
-			    <input type="text" class="form-control" name="teamid" placeholder="TeamID">
-			  </div>
 			  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 			</form>
 		  </div>
@@ -73,9 +70,6 @@ if(userName == null)
 		  <div class="card-body">
 		    <h5 class="card-title">Govt. Quarantine</h5>
 		    <form action="../Displays/govtq_hosp.jsp" method="post" class="form-inline">
-			  <div class="form-group mx-sm-3 mb-2">
-			    <input type="text" class="form-control" name="teamid" placeholder="TeamID">
-			  </div>
 			  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 			</form>
 		  </div>

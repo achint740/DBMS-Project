@@ -11,7 +11,21 @@
 </head>
 <body>
 	<%
-		String tid = request.getParameter("teamid");
+	String userName = null;
+	Cookie[] cookies = request.getCookies();
+	if(cookies !=null){
+		for(Cookie cookie : cookies){
+			if(cookie.getName().equals("user")) 
+				userName = cookie.getValue();
+			//out.println("Value : " + cookie.getValue());
+		}
+	}
+
+	if(userName == null) 
+		userName = "ADMIN_NULL";
+		//response.sendRedirect("Login.jsp");
+
+			String tid = userName;
 	
 		JSONObject obj = new JSONObject();
 		obj.put("Team_ID",tid);

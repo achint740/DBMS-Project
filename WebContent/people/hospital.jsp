@@ -94,9 +94,9 @@ if(userName == null)
 		  <div class="card-body">
 		    <h5 class="card-title">See List Of New Patients</h5>
 		    <form action="../Displays/hosp_new_list.jsp" method="post" class="form-inline">
-			  <div class="form-group mx-sm-3 mb-2">
+			  <!-- <div class="form-group mx-sm-3 mb-2">
 			    <input type="text" class="form-control"name="hosp_id" placeholder="Hospital-ID">
-			  </div>
+			  </div> -->
 			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 			</form>
 		  </div>
@@ -106,10 +106,7 @@ if(userName == null)
 		  <img src="../Images/plist.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">See Complete List Of Patients</h5>
-		    <form action="../Displays/govtq_hosp.jsp" method="post" class="form-inline">
-			  <div class="form-group mx-sm-3 mb-2">
-			    <input type="text" class="form-control" name="hid" placeholder="Hospital-ID">
-			  </div>
+		    <form action="../Displays/hosp_new_list.jsp" method="post" class="form-inline">
 			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 			</form>
 		  </div>
@@ -137,9 +134,6 @@ if(userName == null)
 		  <div class="card-body">
 		    <h5 class="card-title">List Of Doctors</h5>
 		    <form action="../Displays/Doctor_Info.jsp" method="post" class="form-inline">
-			  <div class="form-group mx-sm-3 mb-2">
-			    <input type="text" class="form-control" name="hid" placeholder="Hospital-ID">
-			  </div>
 			  <button type="submit" class="btn btn-primary mb-2">View</button>
 			</form>
 		  </div>
@@ -159,9 +153,6 @@ if(userName == null)
 		    <h4 class="card-title">Cases In Your Hospital</h4>
 		    <form action="../Displays/hosp_cases.jsp" method="POST">
 			  <div class="form-row align-items-center">
-			    <div class="col-auto">
-			        <input type="text" class="form-control" name="hid" placeholder="Hospital-ID">
-			    </div>
 			    <div class="col-auto">
 				    <select name="type" id="cases_type">
 				   		<option>Total_Hosp_Cases</option>

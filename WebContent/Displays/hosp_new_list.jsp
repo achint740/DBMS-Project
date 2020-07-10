@@ -12,8 +12,19 @@
 <body>
 
 	<%
-	
-		String hosp_id = request.getParameter("hosp_id");
+	String userName = null;
+	Cookie[] cookies = request.getCookies();
+	if(cookies !=null){
+		for(Cookie cookie : cookies){
+			if(cookie.getName().equals("user")) 
+				userName = cookie.getValue();
+			//out.println("Value : " + cookie.getValue());
+		}
+	}
+
+	if(userName == null) 
+		userName = "ADMIN_NULL";
+		String hosp_id = userName;
 		
 		JSONObject obj = new JSONObject();
 		obj.put("Hospital_ID",hosp_id);

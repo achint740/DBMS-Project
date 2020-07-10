@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("people/doctor.jsp");
 			else if(c.matches("hospital"))
 				response.sendRedirect("people/hospital.jsp");
-			else if(c.matches("government"))
+			else if(c.matches("admin"))
 				response.sendRedirect("people/admin.jsp");
 			else 
 				response.sendRedirect("LoginSuccess.jsp");

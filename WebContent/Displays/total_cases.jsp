@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.*"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,12 +11,40 @@
 </head>
 <body>
 	<%
-		JSONObject obj = new JSONObject();
+		JSONObject obj1 = new JSONObject();
 		
 		Execute_Statement read_obj = new Execute_Statement();
-		ArrayList<JSONObject> x = read_obj.Read(obj, "Total_Cases");
-		out.println(x);
+		ArrayList<JSONObject> list = read_obj.Read(obj1, "Total_Cases");
 		
 	%>
+	<table>
+		<thead>
+			<% 
+			for(JSONObject obj : list){
+				Iterator<String> keysItr = obj.keys();
+				while(keysItr.hasNext()){
+					String key = keysItr.next();
+			%>
+					<th><%=key %></th>
+			<%
+				}
+			}
+		    %>
+		 </thead>
+		   <tr>
+		    <% 
+			for(JSONObject obj : list){
+				Iterator<String> keysItr = obj.keys();
+				while(keysItr.hasNext()){
+					String key = keysItr.next();
+					Object value = obj.get(key);
+			%>
+					<td><%=value %></td>
+			<%
+				}
+			}
+		    %>
+		    </tr>
+			</table>
 </body>
 </html>

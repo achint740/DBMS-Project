@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.*"%>
 
 <%@page import="org.json.JSONObject"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
@@ -28,8 +28,35 @@
 			//Send this and get the total cases
 			Execute_Statement read_obj = new Execute_Statement();
 			ArrayList<JSONObject> list = read_obj.Read(a,type);
-			out.println(list);
 		%>
-
+			<table>
+				<thead>
+			<% 
+			for(JSONObject obj : list){
+				Iterator<String> keysItr = obj.keys();
+				while(keysItr.hasNext()){
+					String key = keysItr.next();
+			%>
+					<th><%=key %></th>
+			<%
+				}
+			}
+		    %>
+		    	</thead>
+		    	<tr>
+		    <% 
+			for(JSONObject obj : list){
+				Iterator<String> keysItr = obj.keys();
+				while(keysItr.hasNext()){
+					String key = keysItr.next();
+					Object value = obj.get(key);
+			%>
+					<td><%=value %></td>
+			<%
+				}
+			}
+		    %>
+		    	</tr>
+			</table>
 </body>
 </html>

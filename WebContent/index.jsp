@@ -35,9 +35,9 @@
 	
 	<a href="Login.jsp"><img alt="" src="Images/admin.jpg"></a>
 	
-	<a href="forms/Login.jsp"><img alt="" src="Images/team.jpg"></a>
+	<a href="Login.jsp"><img alt="" src="Images/team.jpg"></a>
 	
-	<a href="forms/Login.jsp"><img alt="" src="Images/doctor.jpg"></a>
+	<a href="Login.jsp"><img alt="" src="Images/doctor.jpg"></a>
 </body>
 
 </html>

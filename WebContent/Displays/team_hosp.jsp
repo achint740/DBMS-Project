@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.*"%>
 <%@page import="DataBase_Interface.Execute_Statement"%>
 <%@page import="org.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -10,15 +10,59 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		String team_id = request.getParameter("teamid");
+
+<% 
+String userName = null;
+Cookie[] cookies = request.getCookies();
+if(cookies !=null){
+	for(Cookie cookie : cookies){
+		if(cookie.getName().equals("user")) 
+			userName = cookie.getValue();
+		//out.println("Value : " + cookie.getValue());
+	}
+}
+
+if(userName == null) 
+	userName = "ADMIN_NULL";
+	//response.sendRedirect("Login.jsp");
+
+		String team_id = userName;
 		
-		JSONObject obj = new JSONObject();
-		obj.put("Team_ID",team_id);
+		JSONObject obj1 = new JSONObject();
+		obj1.put("Team_ID",team_id);
 		
 		Execute_Statement e = new Execute_Statement();
-		ArrayList<JSONObject> c = e.Read(obj, "Details_Team_Hospital");
-		out.println(c);
+		ArrayList<JSONObject> list = e.Read(obj1, "Details_Team_Hospital");
+		
 	%>
+	<table>
+				<thead>
+			<% 
+			for(JSONObject obj : list){
+				Iterator<String> keysItr = obj.keys();
+				while(keysItr.hasNext()){
+					String key = keysItr.next();
+			%>
+					<th><%=key %></th>
+			<%
+				}
+			}
+		    %>
+		    	</thead>
+		    	<tr>
+		    <% 
+			for(JSONObject obj : list){
+				Iterator<String> keysItr = obj.keys();
+				while(keysItr.hasNext()){
+					String key = keysItr.next();
+					Object value = obj.get(key);
+			%>
+					<td><%=value %></td>
+			<%
+				}
+			}
+		    %>
+		    	</tr>
+			</table>
 </body>
 </html>

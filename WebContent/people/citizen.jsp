@@ -79,13 +79,13 @@
 <link rel="stylesheet" type="text/css" href="citizen_style.css">
 </head>
 <body>
-	
+	<!--   *********************CITIZEN PORTAL************************ -->
 	<nav class="navbar navbar-dark bg-dark">
   		<h1>Citizen Portal</h1>
 	</nav>
 	
 	<div class="card-group">
-		
+		<!--   *********************FOREIGN VISIT************************ -->
 		<div class="card" >
 		  <img src="../Images/aero.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
@@ -93,7 +93,7 @@
 			<button type="submit" class="btn btn-primary mb-2"><a href="../forms/foreign.jsp"><h5>Fill This Form</h5></a></button>
 		  </div>
 		</div>
-		
+		<!--   *********************CASES IN LOCALITY************************ -->
 		<div class="card">
 		  <img src="../Images/locality.png" class="card-img-top" alt="...">
 		  <div class="card-body">
@@ -124,6 +124,7 @@
 	</div>
 	
 	<div class="card-group">
+		<!--   *********************HOSPITALS IN LOCALITY************************ -->
 		<div class="card">
 		  <img src="../Images/locality.png" class="card-img-top" alt="...">
 		  <div class="card-body">
@@ -143,7 +144,7 @@
 			</form>
 		  </div>
 		</div>
-		
+		<!--   *********************CASES IN INDIA************************ -->
 		<div class="card" >
 		  <img src="../Images/ind2.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
@@ -153,7 +154,7 @@
 		</div>
 		
 	</div>
-	
+	<!--   ********************* UPDATE DETAILS FORM************************ -->
 	<div class="card-group">
 		<div class="card" id="upd">
 		  <img src="../Images/upd.jpg" class="card-img-top" alt="...">

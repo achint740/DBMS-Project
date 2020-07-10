@@ -84,10 +84,9 @@
     <input type="text" class="email" placeholder="User-ID" name="userid">
     <br/>
     <input type="password" class="pwd" placeholder="password" name="pwd">
-    <!--  <button class="signin">
+    <button class="signin">
     	<span>Sign In</span>
-  	</button>  -->
-  	<input type="submit" value="Login">
+  	</button>  
   </form>
   
   <div class="reg"></div>

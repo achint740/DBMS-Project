@@ -23,7 +23,21 @@
 </head>
 <body>
 	<%
-		String t_id = request.getParameter("teamid");
+	String userName = null;
+	Cookie[] cookies = request.getCookies();
+	if(cookies !=null){
+		for(Cookie cookie : cookies){
+			if(cookie.getName().equals("user")) 
+				userName = cookie.getValue();
+			//out.println("Value : " + cookie.getValue());
+		}
+	}
+
+	if(userName == null) 
+		userName = "ADMIN_NULL";
+		//response.sendRedirect("Login.jsp");
+
+		String t_id = userName;
 		
 		JSONObject obj = new JSONObject();
 		obj.put("Team_ID",t_id);
