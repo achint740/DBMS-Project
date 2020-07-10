@@ -5,7 +5,8 @@ h1{
 	font-family: 'Pacifico', cursive;
 	text-decoration: underline;
 	color: white;
-	margin-left: 800px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
@@ -25,4 +26,13 @@ img{
 
 h5{
 	color: white;
+}
+
+h2{
+	float: left;
+	color: white;
+}
+
+form{
+	float : right;
 }

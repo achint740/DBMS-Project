@@ -78,13 +78,16 @@ if(cookies !=null){
 }
 
 if(userName == null) 
-	userName = "ADMIN_NULL";
-	//response.sendRedirect("Login.jsp");
+	//userName = "ADMIN_NULL";
+	response.sendRedirect("../Login.jsp");
 %>
 	
 	<nav class="navbar navbar-dark bg-dark">
+	 	<h2><%=userName %></h2>
   		<h1>Hospital Admin's Portal</h1>
-  		<h2><%=userName %></h2>
+  		<form action="../LogOutServlet" method="post">
+			<button type="submit" class="btn btn-danger mb-2">LogOut</button>
+		</form>
 	</nav>
 	
 	<div class="card-group">

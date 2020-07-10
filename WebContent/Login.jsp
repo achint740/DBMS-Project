@@ -89,10 +89,6 @@
   	</button>  
   </form>
   
-  <form action="LogoutServlet" method="post">
-			<input type="submit" value="Logout" >
-  </form>
-  
   <div class="reg"></div>
   <div class="sig"></div>
 

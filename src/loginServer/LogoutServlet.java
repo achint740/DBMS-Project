@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LogoutServlet
+ * Servlet implementation class LogOutServlet
  */
-@WebServlet("/LogoutServlet")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/LogOutServlet")
+public class LogOutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutServlet() {
+    public LogOutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,18 +26,18 @@ public class LogoutServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-//	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//		doGet(request, response);
-		response.setContentType("text/html");
+//		doGet(request, response);
+		response.setContentType("text/jsp");
     	Cookie loginCookie = null;
     	Cookie[] cookies = request.getCookies();
     	if(cookies != null){
@@ -52,7 +52,7 @@ public class LogoutServlet extends HttpServlet {
     		loginCookie.setMaxAge(0);
         	response.addCookie(loginCookie);
     	}
-    	response.sendRedirect("Login.jsp");
+    	response.sendRedirect("index.jsp");
 	}
 
 }

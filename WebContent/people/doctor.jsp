@@ -10,9 +10,29 @@
 <link rel="stylesheet" type="text/css" href="doctor_style.css">
 </head>
 <body>
+
+<% 
+String userName = null;
+Cookie[] cookies = request.getCookies();
+if(cookies !=null){
+	for(Cookie cookie : cookies){
+		if(cookie.getName().equals("user")) 
+			userName = cookie.getValue();
+		//out.println("Value : " + cookie.getValue());
+	}
+}
+
+if(userName == null) 
+	//userName = "ADMIN_NULL";
+	response.sendRedirect("../Login.jsp");
+%>
 	
 	<nav class="navbar navbar-dark bg-dark">
+		<h2><%=userName %></h2>
   		<h1>Doctor's Portal</h1>
+  		<form action="../LogOutServlet" method="post">
+			<button type="submit" class="btn btn-danger mb-2">LogOut</button>
+		</form>
 	</nav>
 	
 	<div class="card-group">
