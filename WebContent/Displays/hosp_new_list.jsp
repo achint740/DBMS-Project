@@ -63,6 +63,8 @@
 	</tbody>
 	</table>
 	
+	<button class="mybtn1"><a href="../people/hospital.jsp">RETURN</a></button>
+	
 	<form action="../controller/insert/patient_c.jsp" method="POST" id="myform">
 		<input type="hidden" id="aadhar_no" name="aadhar">
 		<input type="hidden" id="doctor_id" name="did">

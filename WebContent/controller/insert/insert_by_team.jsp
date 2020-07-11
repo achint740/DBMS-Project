@@ -13,7 +13,7 @@
 <body>
 	<%
 		String aadhar = request.getParameter("aadhar_no");
-		out.println("Aadhar No. " + aadhar);
+		//out.println("Aadhar No. " + aadhar);
 		
 		JSONObject obj = new JSONObject();
 		obj.put("Aadhar_Number",aadhar);
@@ -29,5 +29,8 @@
 		s.Delete(d);
 		
 	%>
+	<h2>Shifted to Govt. Quarantine Successfully</h2>
+	<button><a href="../../Displays/homeq_govtq.jsp">Go Back</a></button>
+	
 </body>
 </html>

@@ -22,7 +22,7 @@
 	String status = "positive";
 	String aadhar = request.getParameter("aadhar");
 	
-	out.println(date_admit);
+	out.println("Patient Admiited with Patient-ID : " + patient_id + " On : " + date_admit);
 	
 	//Make A JSON Object
 	JSONObject obj = new JSONObject();
@@ -46,7 +46,8 @@
 	s.Delete(obj1);
 %>
 
-<h2>Patient Details Entered Successfully</h2>
+<h2>Doctor Assigned : <%=doctor_id%> </h2>
+<a href="../../Displays/hosp_new_list.jsp">Go Back</a>
 
 </body>
 </html>

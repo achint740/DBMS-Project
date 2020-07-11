@@ -38,11 +38,13 @@
 	%>
 	<table id="Table" class="table table-hover border border-dark">
 				<thead>
-			<% 
+			<%
+			ArrayList<String> keys = new ArrayList<String>(20);
 			for(JSONObject obj : list){
 				Iterator<String> keysItr = obj.keys();
 				while(keysItr.hasNext()){
 					String key = keysItr.next();
+					keys.add(key);
 			%>
 					<th><%=key %></th>
 			<%
@@ -53,21 +55,26 @@
 		    	</thead><tbody>
 		    <% 
 			for(JSONObject obj : list){
-				Iterator<String> keysItr = obj.keys();
 			%>  
 				<tr>
 			<% 
-				while(keysItr.hasNext()){
-					String key = keysItr.next();
-					Object value = obj.get(key);
+				for(String k : keys){
+					if(obj.has(k)){
+			%>			<td><%=obj.get(k) %></td>
+				<%	}
+					else{
+				%>		<td>----</td>
+				<%	}
+				}
 			%>
-					<td><%=value %></td>
+					
 			<%
 				}
 			%>
 				</tr>
-			<%}%>
+			
 		    </tbody>
 			</table>
+	
 </body>
 </html>

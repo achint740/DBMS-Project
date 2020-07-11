@@ -77,6 +77,8 @@
 		
 		</table>
 		
+		<button class="mybtn"><a href="../people/teams.jsp">Go Back</a></button>
+		
 		<form method="post" action="../controller/insert/insert_by_team_new.jsp" id="hidden_form">
 			<input type="hidden" name="aadhar_no" id="myaadhar">
 			<input type="hidden" name="hosp_id" id="hosp">

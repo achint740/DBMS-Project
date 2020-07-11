@@ -119,7 +119,7 @@ if(userName == null)
 		  <img src="../Images/pinfo.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">See A Patient's Info</h5>
-		    <form action="../Displays/patient_list.jsp" method="post" class="form-inline">
+		    <form action="../Displays/patient_info.jsp" method="post" class="form-inline">
 			  <div class="form-group mx-sm-3 mb-2">
 			    <input type="text" class="form-control" name="pid" placeholder="Patient-ID">
 			  </div>

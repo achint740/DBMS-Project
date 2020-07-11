@@ -15,7 +15,7 @@
 		String aadhar = request.getParameter("aadhar_no");
 		String hosp_id = request.getParameter("hosp_id");
 		
-		out.println(aadhar + "  " + hosp_id);
+		//out.println(aadhar + "  " + hosp_id);
 		
 		JSONObject obj = new JSONObject();
 		obj.put("Table_Name","Govt_Quarantined");
@@ -32,5 +32,8 @@
 		s.Insert(obj1);
 		
 	%>
+	<h2>Referred to Hospital Successfully</h2>
+	<button><a href="../../Displays/govtq_hosp.jsp">Go Back</a></button>
+	
 </body>
 </html>
