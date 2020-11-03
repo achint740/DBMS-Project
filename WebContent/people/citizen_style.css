@@ -1,31 +1,70 @@
 @charset "ISO-8859-1";
 
-h1{
-	font-size: 50px;
-	font-family: 'Pacifico', cursive;
-	text-decoration: underline;
-	color: white;
-	margin-left: 800px;
-}
-
 .card{
-	margin-top : 30px;
 	padding-left: 120px;
 	padding-right: 120px;
-	width : 10px;
+	width : 800px;
+	height: 800px;
+	margin: 0 auto;
+	margin-top : 100px;
+	margin-bottom: 100px;
 }
 
-img{
-	margin-top : 20px;
-	width : 70px;
-	height: 400px;
+.card-img-top{
+	margin-top: 30px;
+	height: 500px;
 }
 
-#upd{
-	margin-left : 500px;
-	margin-right: 500px;
+.vertical-nav {
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
 }
 
-h5{
-	color: white;
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
 }
+
+/* for toggle behavior */
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #c0c0c0;
+  
+}
+
+

@@ -1,100 +1,115 @@
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-		<!--  *********************CITIZEN PORTAL************************ 
-		<h1>Citizen Portal</h1>
-		
-		
-		<!--  *********************FOREIGN VISIT FORM FILLING************************ 
-		
-		<h2>Foreign Visited Citizen Profile Form<a href="../forms/foreign.jsp">Fill this form</a></h2>
-		
-		
-		<!--  *********************NUMBER OF CASES IN A LOCALITY************************ 
-		
-		<h2>To know cases in your locality</h2>
-		<h2>Fill your Location below</h2>
-		
-		<form method="post" action="../Displays/no_cases.jsp">
-			   
-			   <input name="city" placeholder="CITY">
-			   <input name="state" placeholder="STATE">
-			   <select name="type">
-			   		<option>Nearby_Cases</option>
-			   		<option>Nearby_Active_Cases</option>
-			   		<option>Nearby_Recovered_Cases</option>
-			   </select>
-			   <input type="submit" value="Enter">
-			   
-		</form>
-		
-		
-		<!--  *********************TOTAL CASES IN A COUNTRY************************ 
-		
-	    <form method="post" action="../Displays/total_cases.jsp">
-	    
-	    	<h2>Click Here To Know The Total Cases In India</h2>
-	    	<input type="submit" value="Enter">
-	    		
-	    </form>
-	    
-	    <br>
-	    
-	    
-	    
-	    <!--  *********************DISPLAY LIST OF HOSPITALS IN A LOCALITY************************ 
-	    
-	    <form method="post" action="../Displays/hospitals.jsp">
-	    	  <h2>To Know Hospitals in Your Locality</h2>
-	    	  <input name="city" placeholder="CITY">
-			  <input name="state" placeholder="STATE">
-			  <input type="submit" value="Enter">
-			    
-	    </form>
-	    
-	    <!--  *********************UPDATE YOUR DETAILS************************ 
-	    
-	    <a href="../forms/upd_citizen_details.jsp"><h1>Update Details Form</h1></a>
-	    
-
-</body>
-</html>
-
- -->
- 
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Citizens</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="citizen_style.css">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="citizen_style.css" rel="stylesheet">
 </head>
 <body>
-	<!--   *********************CITIZEN PORTAL************************ -->
-	<nav class="navbar navbar-dark bg-dark">
-  		<h1>Citizen Portal</h1>
-	</nav>
-	
-	<div class="card-group">
-		<!--   *********************FOREIGN VISIT************************ -->
-		<div class="card" >
-		  <img src="../Images/aero.jpg" class="card-img-top" alt="...">
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+  
+    <div class="media d-flex align-items-center">
+      <!-- 
+      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+       -->
+      <div class="media-body">
+        <h4 class="m-0">CITIZENS</h4>
+       <!-- <p class="font-weight-light text-muted mb-0">Web developer</p>  -->
+      </div>
+      
+    </div>
+ 
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="../index.jsp" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                HOME
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                ABOUT US
+      </a>
+    </li>
+  </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Portals</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#view_hosp" class="nav-link text-dark font-italic">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                View Hospitals
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#view_cases_1" class="nav-link text-dark font-italic">
+                <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                View Cases(India)
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#view_cases_2" class="nav-link text-dark font-italic">
+                <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                View Cases(Locality)
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#foreign" class="nav-link text-dark font-italic">
+                <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
+                Visited Foreign?
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#upd" class="nav-link text-dark font-italic">
+                <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
+                Update Details
+       </a>
+    </li>
+  </ul>
+</div>
+<div class="page-content p-5" id="content">
+
+	<div id="view_hosp" class="card">
+		  <img src="../Images/locality.png" class="card-img-top" alt="...">
 		  <div class="card-body">
-		    <h4 class="card-title">Visited Foreign Recently?</h4>
-			<button type="submit" class="btn btn-primary mb-2"><a href="../forms/foreign.jsp"><h5>Fill This Form</h5></a></button>
+		    <h4 class="card-title">View Hospitals In Locality</h4>
+		    <form action="../Displays/hospitals.jsp" method="POST">
+			  <div class="form-row align-items-center">
+			    <div class="col-auto">
+			      <input type="text" class="form-control mb-2" name="city" placeholder="CITY">
+			    </div>
+			    <div class="col-auto">
+			        <input type="text" class="form-control" name="state" placeholder="STATE">
+			    </div>
+			    <div class="col-auto">
+			      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+			    </div>
+			  </div>
+			</form>
+		 </div>
+	</div>
+	
+	<div id="view_cases_1" class="card" >
+		  <img src="../Images/ind2.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h4 class="card-title">Total Cases In India</h4>
+			<a href="../Displays/total_cases.jsp" class="btn btn-primary mb-2"><h5>Click To Display</h5></a>
 		  </div>
-		</div>
-		<!--   *********************CASES IN LOCALITY************************ -->
-		<div class="card">
+	</div>
+	
+	<div id="view_cases_2" class="card">
 		  <img src="../Images/locality.png" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h4 class="card-title">View Cases In Locality</h4>
@@ -119,51 +134,23 @@
 			  </div>
 			</form>
 		  </div>
-		</div>
-		
 	</div>
 	
-	<div class="card-group">
-		<!--   *********************HOSPITALS IN LOCALITY************************ -->
-		<div class="card">
-		  <img src="../Images/locality.png" class="card-img-top" alt="...">
+	<div id="foreign" class="card" >
+		  <img src="../Images/aero.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
-		    <h4 class="card-title">View Hospitals In Locality</h4>
-		    <form action="../Displays/hospitals.jsp" method="POST">
-			  <div class="form-row align-items-center">
-			    <div class="col-auto">
-			      <input type="text" class="form-control mb-2" name="city" placeholder="CITY">
-			    </div>
-			    <div class="col-auto">
-			        <input type="text" class="form-control" name="state" placeholder="STATE">
-			    </div>
-			    <div class="col-auto">
-			      <button type="submit" class="btn btn-primary mb-2">Submit</button>
-			    </div>
-			  </div>
-			</form>
+		    <h4 class="card-title">Visited Foreign Recently?</h4>
+			<a href="../forms/foreign.jsp"  class="btn btn-primary mb-2"><h5>Fill This Form</h5></a>
 		  </div>
-		</div>
-		<!--   *********************CASES IN INDIA************************ -->
-		<div class="card" >
-		  <img src="../Images/ind2.jpg" class="card-img-top" alt="...">
-		  <div class="card-body">
-		    <h4 class="card-title">Total Cases In India</h4>
-			<button type="submit" class="btn btn-primary mb-2"><a href="../Displays/total_cases.jsp"><h5>Click To Display</h5></a></button>
-		  </div>
-		</div>
-		
 	</div>
-	<!--   ********************* UPDATE DETAILS FORM************************ -->
-	<div class="card-group">
-		<div class="card" id="upd">
+	
+	<div class="card" id="upd">
 		  <img src="../Images/upd.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h4 class="card-title">Update Details?</h4>
-			<button type="submit" class="btn btn-primary mb-2"><a href="../forms/upd_citizen_details.jsp"><h5>Fill This Form</h5></a></button>
+			<a href="../forms/upd_citizen_details.jsp" class="btn btn-primary mb-2"><h5>Fill This Form</h5></a>
 		  </div>
-		</div>
 	</div>
- 
+</div>
 </body>
 </html>
