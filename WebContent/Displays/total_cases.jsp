@@ -19,7 +19,6 @@
 		
 		Execute_Statement read_obj = new Execute_Statement();
 		ArrayList<JSONObject> list = read_obj.Read(obj1, "Total_Cases");
-		
 	%>
 	<table id="Table" class="table table-hover border border-dark">
 		<thead>

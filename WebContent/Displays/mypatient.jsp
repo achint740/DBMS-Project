@@ -15,7 +15,19 @@
 </head>
 <body>
 	<%
-		String d_id = request.getParameter("doctorid");
+		String userName = null;
+		Cookie[] cookies = request.getCookies();
+		if(cookies !=null){
+			for(Cookie cookie : cookies){
+				if(cookie.getName().equals("user")) 
+					userName = cookie.getValue();
+				//out.println("Value : " + cookie.getValue());
+			}
+		}
+	
+		if(userName == null) 
+			userName = "DOCTOR_NULL";
+		String d_id = userName;
 	
 		JSONObject obj1 = new JSONObject();
 		obj1.put("Doctor_ID",d_id);

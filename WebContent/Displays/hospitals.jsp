@@ -27,6 +27,7 @@
 	    	
 	    	Execute_Statement s = new Execute_Statement();
 	    	ArrayList<JSONObject> hosp_list =  s.Read(obj, "Details_Nearby_Hospital");
+	    	
 		%>
 		<table id="Table" class="table table-hover border border-dark">
 				<thead>
