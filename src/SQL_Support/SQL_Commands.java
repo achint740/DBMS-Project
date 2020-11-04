@@ -132,6 +132,7 @@ public class SQL_Commands {
 			}
 			System.out.println("Hello  " + ps);
 			rs = ps.executeQuery();
+			System.out.println(rs);
 			list = new ArrayList<JSONObject>();
 			while (rs.next()) {
 				JSONObject new_json_obj = new JSONObject();

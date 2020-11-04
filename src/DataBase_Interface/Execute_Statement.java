@@ -9,7 +9,7 @@ import SQL_Support.SQL_Commands;
 
 public class Execute_Statement {
 	private SQL_Commands sql;
-
+	private String pika_test = "Pika Pika";
 	public Execute_Statement() {
 		// TODO Auto-generated constructor stub
 		sql = new SQL_Commands("root", new Database_Auth().password, "cms");
@@ -74,11 +74,14 @@ public class Execute_Statement {
 	}
 	public ArrayList<JSONObject> Read(JSONObject obj, String type) {
 		try {
+			System.out.println("Values Received : ");
+			System.out.println(obj);
+			System.out.println(type);
 			Get_Read_Query read = new Get_Read_Query();
 			String required_Query = read.get(obj, type);
+			System.out.print("Query Reqd : " + required_Query);
 			return (ArrayList<JSONObject>) sql.Read(required_Query, read.values , read.features);
-			
-			
+		
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error in Read Execute_Statement");
