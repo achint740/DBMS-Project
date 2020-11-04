@@ -1,59 +1,3 @@
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-	<h1>Hospitals Portal</h1>
-	
-	<h2>Hospital Details Form<a href="../forms/hospital.jsp">Fill this form</a></h2>
-	
-	<h2>See the list of new patients</h2>
-	<form action="../Displays/hosp_new_list.jsp" method="POST">
-		<input name="hosp_id" type="text">
-		<input type="submit" value="Enter">
-	</form>
-	
-	<h2>Add Doctor<a href="../forms/doctor.jsp">Fill this form</a></h2>
-	
-	<h2>To see the total cases admitted in your Hospital</h2>
-	
-	<form method="POST" action="../Displays/hosp_cases.jsp">
-		<p>Please Enter the Hospital ID</p>
-		<input type="text" name="hid">
-		<select name="type">
-			<option>Total_Hosp_Cases</option>
-			<option>Active_Hosp_Cases</option>
-			<option>Treated_Hosp_Cases</option>
-		</select>
-		<input type="submit" value="Enter">
-	</form>
-	
-	<h2>To See A Patient's INFO</h2>
-	<form method="post" action="../Displays/patient_info.jsp">
-		<input type="text" placeholder="Enter PID" name="pid">
-		<input type="submit" value="Enter"> 
-	</form>
-	
-	<h2>To see the list of patients</h2>
-	<form method="post" action="../Displays/patient_list.jsp">
-		<input type="text" placeholder="Enter HID" name="hid">
-		<input type="submit" value="Enter"> 
-	</form>
-	
-	<h2>To see the list of your doctors</h2>
-	<form method="post" action="../Displays/Doctor_Info.jsp">
-		<input type="text" placeholder="Enter HID" name="hid">
-		<input type="submit" value="Enter">
-	</form>
-</body>
-</html>
-
--->
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -61,9 +5,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Hospitals</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="hosp_style.css">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="hosp_style.css" rel="stylesheet">
 </head>
 <body>
 <% 
@@ -81,18 +26,86 @@ if(userName == null)
 	//userName = "ADMIN_NULL";
 	response.sendRedirect("../Login.jsp");
 %>
-	
-	<nav class="navbar navbar-dark bg-dark">
-	 	<h2><%=userName %></h2>
-  		<h1>Hospital Admin's Portal</h1>
-  		<form action="../LogOutServlet" method="post">
-			<button type="submit" class="btn btn-danger mb-2">LogOut</button>
-		</form>
-	</nav>
-	
-	<div class="card-group">
-		
-		<div class="card" >
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+  
+    <div class="media d-flex align-items-center">
+      <div class="media-body">
+        <h4 class="m-0">HOSPITAL</h4>
+        <h4><%=userName %></h4>
+      </div>
+    </div>
+ 
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="../index.jsp" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                HOME
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                ABOUT US
+      </a>
+    </li>
+  </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Portals</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#list_new" class="nav-link text-dark font-italic">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                View List(New Patients)
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#list_p" class="nav-link text-dark font-italic">
+                <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                View List(All)
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#info" class="nav-link text-dark font-italic">
+                <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                View Patient Info
+            </a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="#list_doc" class="nav-link text-dark font-italic">
+                <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
+                List of Doctors
+       </a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="#add_doc" class="nav-link text-dark font-italic">
+                <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
+                Add a Doctor
+       </a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="#cases" class="nav-link text-dark font-italic">
+                <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
+                View Cases
+       </a>
+    </li>
+  </ul>
+  
+  <form action="../LogOutServlet" method="post">
+		<button type="submit" class="btn btn-danger mb-2">LogOut</button>
+  </form>
+</div>
+<div class="page-content p-5" id="content">
+
+	<div class="card" id="list_new">
 		  <img src="../Images/pnew.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">See List Of New Patients</h5>
@@ -103,9 +116,9 @@ if(userName == null)
 			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 			</form>
 		  </div>
-		</div>
-		
-		<div class="card h-600">
+	</div>
+	
+	<div class="card" id="list_p">
 		  <img src="../Images/plist.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">See Complete List Of Patients</h5>
@@ -113,9 +126,9 @@ if(userName == null)
 			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 			</form>
 		  </div>
-		</div>
-		
-		<div class="card">
+	</div>
+	
+	<div class="card" id="info">
 		  <img src="../Images/pinfo.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">See A Patient's Info</h5>
@@ -126,13 +139,9 @@ if(userName == null)
 			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 			</form>
 		  </div>
-		</div>
-		
 	</div>
 	
-	<div class="card-group">
-	
-		<div class="card">
+	<div class="card" id="list_doc">
 		  <img src="../Images/listd.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">List Of Doctors</h5>
@@ -140,17 +149,17 @@ if(userName == null)
 			  <button type="submit" class="btn btn-primary mb-2">View</button>
 			</form>
 		  </div>
-		</div>
-		
-		<div class="card" >
+	</div>
+	
+	<div class="card" id="add_doc">
 		  <img src="../Images/doctor1.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">Add A Doctor</h5>
 		    <a href="../forms/doctor.jsp" class="btn btn-primary">ADD</a>
 		  </div>
-		</div>
-		
-		<div class="card">
+	</div>
+	
+	<div class="card" id="cases">
 		  <img src="../Images/cases.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h4 class="card-title">Cases In Your Hospital</h4>
@@ -169,9 +178,7 @@ if(userName == null)
 			  </div>
 			</form>
 		  </div>
-		</div>
-		
 	</div>
- 
+</div>
 </body>
 </html>

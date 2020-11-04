@@ -15,14 +15,9 @@
   <div class="py-4 px-3 mb-4 bg-light">
   
     <div class="media d-flex align-items-center">
-      <!-- 
-      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-       -->
       <div class="media-body">
         <h4 class="m-0">CITIZENS</h4>
-       <!-- <p class="font-weight-light text-muted mb-0">Web developer</p>  -->
       </div>
-      
     </div>
  
   </div>
@@ -91,7 +86,7 @@
 			      <input type="text" class="form-control mb-2" name="city" placeholder="CITY">
 			    </div>
 			    <div class="col-auto">
-			        <input type="text" class="form-control" name="state" placeholder="STATE">
+			        <input type="text" class="form-control mb-2" name="state" placeholder="STATE">
 			    </div>
 			    <div class="col-auto">
 			      <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -119,7 +114,7 @@
 			      <input type="text" class="form-control mb-2" name="city" placeholder="CITY">
 			    </div>
 			    <div class="col-auto">
-			        <input type="text" class="form-control" name="state" placeholder="STATE">
+			        <input type="text" class="form-control mb-2" name="state" placeholder="STATE">
 			    </div>
 			    <div class="col-auto">
 				    <select name="type" id="cases_type">

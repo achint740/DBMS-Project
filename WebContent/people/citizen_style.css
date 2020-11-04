@@ -61,10 +61,11 @@
 }
 
 body {
+  background-image : url("../Images/c2.jpg");
+  background-size : cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: #c0c0c0;
-  
 }
 
 
