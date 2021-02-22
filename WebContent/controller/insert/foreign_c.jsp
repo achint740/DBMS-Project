@@ -9,6 +9,15 @@
 <meta charset="ISO-8859-1">
 <title>Foreign-Controller</title>
 </head>
+<style>
+body{
+	background-image: url("../../Images/Sign_Up.jpg");
+		background-size: cover;		
+}
+
+a{
+color : red;}
+</style>
 <body>
 	<h2>Welcome to Foreign Data Controller</h2>
 <%

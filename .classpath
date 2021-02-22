@@ -12,7 +12,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/sargam/Downloads/json_rpc/json-rpc-1.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sargam/Downloads/srvlet.jar/servlet.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sargam/Desktop/mysql-jar/mysql-connector-java-8.0.19/mysql-connector-java-8.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sargam/Desktop/mysql-connector-java-8.0.19/mysql-connector-java-8.0.19.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="https://javaee.github.io/javaee-spec/javadocs/"/>

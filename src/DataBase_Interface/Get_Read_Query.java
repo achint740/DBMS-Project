@@ -9,7 +9,7 @@ public class Get_Read_Query {
 	public String get(JSONObject obj, String type) {
 		String query = "";
 		if (type.equals("Total_Active_Cases")) {
-			query = " SELECT COUNT(Aadhar_Number) as Total_Active_Cases FROM PATIENT WHERE Date_Discharge IS  NULL ;";
+			query = " SELECT COUNT(Aadhar_Number) as Total_Active_Cases FROM PATIENT WHERE Date_Discharge IS NULL ;";
 			features = new String[1];
 			features[0] = "Total_Active_Cases";
 		} else if (type.equals("Total_Recovered_Cases")) {
@@ -29,9 +29,9 @@ public class Get_Read_Query {
 			values[0] = (String) obj.get("city") + "";
 			values[1] = (String) obj.get("state") + "";
 			features = new String[3];
-		      features[0] = "Name";
-		      features[1] = "City";
-		      features[2] = "State";
+		    features[0] = "Name";
+		    features[1] = "City";
+		    features[2] = "State";
 //		      features[3] = "Patient";
 //		      features[4] = "Doctor";
 		}
@@ -99,13 +99,13 @@ public class Get_Read_Query {
 			values[0] = (String) obj.get("Patient_ID");
 			
 			features = new String[8];
-			features[0] = "First_Name";
-			features[1] = "Patient_ID";
-			features[2] = "Date_Admit";
-			features[3] = "Date_Discharge";
-			features[4] = "Testing_Status";
-			features[5] = "Last_Name";			
-			features[6] = "Age";
+			features[0] = "Patient_ID";
+			features[1] = "First_Name";
+			features[2] = "Last_Name";
+			features[3] = "Age";
+			features[4] = "Date_Admit";
+			features[5] = "Date_Discharge";
+			features[6] = "Testing_Status";		
 			features[7] = "Doctor_ID";
 			
 			
@@ -126,14 +126,14 @@ public class Get_Read_Query {
 			values[0] = (String) obj.get("Hospital_ID");
 			
 			features = new String[8];
-			features[7] = "First_Name";
-			features[5] = "Last_Name";			
-			features[6] = "Age";
 			features[0] = "Patient_ID";
-			features[1] = "Date_Admit";
-			features[2] = "Date_Discharge";
-			features[3]= "Testing_Status";
-			features[4] = "Doctor_ID";
+			features[1] = "First_Name";
+			features[2] = "Last_Name";	
+			features[3] = "Age";
+			features[4] = "Date_Admit";
+			features[5] = "Date_Discharge";
+			features[6] = "Testing_Status";		
+			features[7] = "Doctor_ID";
 		}
 		else if(type.equals("Doctor_Info")) {
 			query =" SELECT Doctor.NAME AS NAME,Doctor.DOCTOR_ID AS DOCTOR_ID ,Doctor.QUALIFICATION as QUALIFICATION, Count(Patient.patient_id) as TOTAL_PATIENTS, "+
@@ -169,13 +169,13 @@ public class Get_Read_Query {
 			values[0] = (String) obj.get("Doctor_ID");
 			
 			features = new String[7];
-			features[0] = "First_Name";
-			features[1] = "Patient_ID";
-			features[2] = "Date_Admit";
-			features[3] = "Date_Discharge";
-			features[4] = "Testing_Status";
-			features[5] = "Last_Name";			
-			features[6] = "Age";
+			features[0] = "Patient_ID";
+			features[1] = "First_Name";
+			features[2] = "Last_Name";	
+			features[3] = "Age";
+			features[4] = "Date_Admit";
+			features[5] = "Date_Discharge";
+			features[6] = "Testing_Status";		
 		}
 		else if(type.equals("State_Analysis")) {
 			query = " SELECT PERSON.STATE AS STATE_SELECTED,COUNT(PATIENT.PATIENT_ID) AS CNT FROM PATIENT INNER JOIN PERSON ON PATIENT.AADHAR_NUMBER = PERSON.AADHAR_NUMBER GROUP BY STATE; ";
@@ -296,7 +296,7 @@ public class Get_Read_Query {
 			features =  new String[5];
 			features[0]= "Team_ID";
 			features[1]="Head_Name";
-			features[2]=	"City";
+			features[2]="City";
 			features[3]="State";
 			features[4]="Contact";
 		}

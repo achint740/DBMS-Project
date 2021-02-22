@@ -11,7 +11,20 @@
 <body>
 	
 	<%
-		String d_id = request.getParameter("doctorid");
+		String userName = null;
+		Cookie[] cookies = request.getCookies();
+		if(cookies !=null){
+			for(Cookie cookie : cookies){
+				if(cookie.getName().equals("user")) 
+					userName = cookie.getValue();
+				//out.println("Value : " + cookie.getValue());
+			}
+		}
+	
+		if(userName == null) 
+			userName = "DOCTOR_NULL";
+		
+		String d_id = userName;
 		String p_id = request.getParameter("patientid");
 		String status = request.getParameter("status");
 		
@@ -24,6 +37,9 @@
 		System.out.print(what);
 		Execute_Statement e = new Execute_Statement();
 		e.Update(what, where, "Entity_Patient");
+		
+		out.println("Updated!");
+		
 	%>
 	
 </body>

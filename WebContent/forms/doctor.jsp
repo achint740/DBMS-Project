@@ -15,7 +15,7 @@
 		margin-top: 100px;
 	}
 	h1{
-		color: green;
+		color: red;
 		text-decoration: underline;
 		font-family: 'Lobster', cursive;
 		font-size: 40px;

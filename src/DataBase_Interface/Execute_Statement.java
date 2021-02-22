@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
+import SQL_Support.Pika;
 import SQL_Support.SQL_Commands;
 
 public class Execute_Statement {
 	private SQL_Commands sql;
-	private String pika_test = "Pika Pika";
 	public Execute_Statement() {
 		// TODO Auto-generated constructor stub
 		sql = new SQL_Commands("root", new Database_Auth().password, "cms");

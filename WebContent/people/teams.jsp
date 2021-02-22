@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Doctors</title>
+<title>Teams</title>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="doctor_style.css" rel="stylesheet">
+<link href="team_style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -92,7 +92,7 @@ if(userName == null)
 </div>
 <div class="page-content p-5" id="content">
 	<div class="card" >
-		  <img src="../Images/doctor1.jpg" class="card-img-top" alt="...">
+		  <img src="../Images/team1.jpeg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 id="add" class="card-title">Sign Up a Person</h5>
 		    <a href="../forms/person.jsp" class="btn btn-primary">Register</a>
